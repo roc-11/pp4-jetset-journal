@@ -1,1 +1,1 @@
-web: gunicorn codestar.wsgi
+web: gunicorn jetset_journal.wsgi
