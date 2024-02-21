@@ -80,9 +80,13 @@ Returning Users
 
 ### Wireframes
 
-![Desktop Wireframes]()
+![Desktop Wireframes - Homepage](documentation/wireframe_1_homepage.png)
 
-![Mobile Wireframes]()
+![Desktop Wireframes - Contact & About Pages](documentation/wireframe_2_about_contact.png)
+
+![Desktop Wireframes - The Blog & Destinations Pages](documentation/wireframe_3_blog_destination.png)
+
+![Mobile Wireframes](documentation/wireframe_4_mobile_homepage.png)
 
 ### Flow Chart
 
