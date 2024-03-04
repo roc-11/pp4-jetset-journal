@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_summernote',
     'blog',
+    'about',
 ]
 
 # Auto redirect user to homepage after login/out
