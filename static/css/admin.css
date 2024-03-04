@@ -1,0 +1,42 @@
+/*--------------------------------------------------------------
+# Admin Area
+--------------------------------------------------------------*/
+#header {
+    height: 75px;
+    background: #fc4a1a;
+    color: white;
+}
+
+#branding h1 {
+    color: white;
+}
+
+div.breadcrumbs {
+    background-color: #f7fbfe;
+    color: #fc4a1a;
+}
+
+div.breadcrumbs a {
+    color: #333;
+}
+
+.module caption {
+    background: #fc4a1a;
+    color: white;
+}
+
+.button.default,
+input[type=submit].default,
+.submit-row input.default {
+    background: #fc4a1a;
+    color: white;
+}
+
+#changelist-filter h2 {
+    background: #fc4a1a;
+    color: white;
+}
+
+#nav-sidebar .current-model {
+    background: #fc4a1a;
+}
