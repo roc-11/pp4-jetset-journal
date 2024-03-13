@@ -7,27 +7,28 @@
 
 {% block content %}
 
-<div class="container">
+<div id="login-container" class="container mt-5">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
+            <h2 class="text-center text-uppercase">{% trans "Sign In" %}</h2>
 
-            <p>{% blocktrans %}Welcome back to the code|star blog. To leave a comment or like a post, please log in. If
-                you
-                have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
-                first.{% endblocktrans %}</p>
+            <p class="mt-4 text-center text-muted mb-0">{% blocktrans %}Welcome back to the Jetset Journal blog.{% endblocktrans %}</p>
+            <p class="text-center text-muted">{% blocktrans %}To leave a comment or like a post, please log in.{% endblocktrans %}</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
+        <div class="col-md-8 mt-3 offset-md-2 text-center">
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
+                <button class="btn btn-signup right text-uppercase" type="submit">{% trans "Sign In" %}</button>
             </form>
+            <p class="mt-4 text-muted">{% blocktrans %}
+                Don't have an account? Please <a class="link text-uppercase" href="{{ signup_url }}">sign up</a>
+                {% endblocktrans %}</p>
         </div>
     </div>
 </div>

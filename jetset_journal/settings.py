@@ -32,6 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu108.gitpod.io', 
     '8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu110.gitpod.io',
+    '8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu109.gitpod.io',
     '.herokuapp.com',
 ]
 
