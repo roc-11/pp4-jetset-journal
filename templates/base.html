@@ -64,15 +64,18 @@
                     <!-- User Account Section - Login/Logout/Register links-->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">
+                            <i class="fas fa-user"></i> Logout</a>
                     </li>
                     {% else %}
+                    <!--
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
                             href="{% url 'account_signup' %}">Register</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">
+                            <i class="fas fa-user"></i> Login / Register</a>
                     </li>
                     {% endif %}
                 </ul>
