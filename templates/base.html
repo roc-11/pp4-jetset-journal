@@ -60,7 +60,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == about_url %}active{%endif%}" aria-current="page" href="{% url 'about' %}">About</a>
-                      </li>
+                    </li>
                     <!-- User Account Section - Login/Logout/Register links-->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
@@ -131,9 +131,6 @@
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link px-2 text-white">About</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-white">Destinations</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link px-2 text-white">Contact</a>

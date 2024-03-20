@@ -87,13 +87,13 @@
         <div class="col-md-6">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary-emphasis">Destination Placeholder</strong>
+                    <strong class="d-inline-block mb-2 text-primary-emphasis">Destination: <span class="text-uppercase">{{ post.destination }}</span></strong>
                     <!-- <h3 class="mb-0">Featured Post</h3> -->
-                    <div class="author mb-1 text-body-secondary">Author: {{ post.author }}</div>
                     <a href="{% url 'post_detail' post.slug %}" class="post-link">
                         <h3 class="card-title">{{ post.title }}</h3>
                         <p class="card-text  mb-auto">{{ post.excerpt }}</p>
                     </a>
+                    <div class="author mb-1 text-body-secondary">Author: {{ post.author }}</div>
                     <hr />
                     <div class="mb-1 text-body-secondary">{{ post.created_on}}</div>
                 </div>
