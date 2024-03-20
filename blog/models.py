@@ -2,6 +2,19 @@ from django.db import models
 from django.contrib.auth.models import User
 
 STATUS = ((0, "Draft"), (1, "Published"))
+DESTINATIONS = (
+    ('europe', 'Europe'),
+    ('northamerica', 'North America'),
+    ('southamerica', 'South America'),
+    ('centralamerica', 'Central America'),
+    ('asia', 'Asia'),
+    ('africa', 'Africa'),
+    ('antarctica', 'Antarctica'),
+    ('australia', 'Australia'),
+    ('newzealand', 'New Zealand & The Pacific'),
+    ('caribbean', 'The Caribbean'),
+    ('middleeast', 'The Middle East')
+    )
 
 # Create your models here.
 
@@ -15,6 +28,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+    destination = models.CharField(choices=DESTINATIONS, default='europe')
 
     class Meta:
         ordering = ["-created_on"]
@@ -37,4 +51,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
-
