@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'blog',
     'about',
+    'contact',
 ]
 
 # Auto redirect user to homepage after login/out
