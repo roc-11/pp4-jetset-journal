@@ -12,7 +12,12 @@
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/sample-blog-image.jpg' %}" class="scale" alt="placeholder">
+              {% if "placeholder" in post.featured_image.url %}
+              <img class="scale" width="200" height="250" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+              {% else %}
+              <img class="scale" width="200" height="250" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+              {% endif %}
+                <!--<img src="{% static 'images/sample-blog-image.jpg' %}" class="scale" alt="placeholder">-->
             </div>
         </div>
     </div>
