@@ -73,3 +73,45 @@ class Like(models.Model):
 
     def __str__(self):
         return str(self.post)
+
+
+class UserProfile(models.Model):
+    """
+    Model representing user profiles with additional information.
+    This model extends the default User model with
+    additional fields to store user profile information.
+    It includes fields for personal details,
+    social media profiles, contact information, and more.
+    The '__str__' method returns the username of the associated user,
+    and 'get_absolute_url' generates the URL for
+    viewing the user's profile page.
+    """
+    user = models.OneToOneField(User, null=True,  on_delete=models.CASCADE)
+    bio = models.TextField(blank=True)
+    profile_picture = CloudinaryField('image', default='placeholder')
+    date_of_birth = models.DateField(blank=True, null=True)
+    email = models.EmailField(blank=True)
+
+    def __str__(self) -> str:
+        """ Returns a string representation of the associated user. """
+        return str(self.user)
+
+    def get_absolute_url(self):
+        """ Returns the absolute URL for the user's profile page. """
+        return reverse('show_user_profile_page', args=[str(self.pk)])
+
+    def is_complete(self):
+        """
+        Checks if the user's profile is considered complete.
+        """
+        required_fields = [
+            'bio',
+        ]
+
+        for field_name in required_fields:
+            if not getattr(self, field_name):
+                return False
+
+        return True
+
+

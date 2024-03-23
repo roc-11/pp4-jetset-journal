@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, Comment, Like
+from .models import Post, Comment, Like, User
 from .forms import CommentForm
 
 # Create your views here - Class Based View, PostList
@@ -106,3 +106,4 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
