@@ -16,6 +16,10 @@ DESTINATIONS = (
     ('caribbean', 'The Caribbean'),
     ('middleeast', 'The Middle East')
     )
+LIKE_CHOICES = (
+    ('Like', 'Like'),
+    ('Unlike', 'Unlike')
+)
 
 # Create your models here.
 
@@ -31,12 +35,18 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     destination = models.CharField(choices=DESTINATIONS, default='europe')
+    liked = models.ManyToManyField(
+        User, default=None, blank=True, related_name='liked')
 
     class Meta:
         ordering = ["-created_on"]
 
     def __str__(self):
         return f"{self.title} | written by {self.author}"
+    
+    @property
+    def num_likes(self):
+        return self.liked.all().count()
 
 
 class Comment(models.Model):
@@ -53,3 +63,14 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
+
+
+class Like(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE)
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE)
+    value = models.CharField(choices=LIKE_CHOICES, default='Like', max_length=10)
+
+    def __str__(self):
+        return str(self.post)
