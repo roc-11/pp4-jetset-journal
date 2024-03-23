@@ -3,7 +3,7 @@
 --------------------------------------------------------------*/
 #header {
     height: 75px;
-    background: #fb8500;
+    background: #fc4a1a;
     color: white;
 }
 
@@ -13,7 +13,7 @@
 
 div.breadcrumbs {
     background-color: #f7fbfe;
-    color: #fb8500;
+    color: #fc4a1a;
 }
 
 div.breadcrumbs a {
@@ -21,22 +21,22 @@ div.breadcrumbs a {
 }
 
 .module caption {
-    background: #fb8500;
+    background: #fc4a1a;
     color: white;
 }
 
 .button.default,
 input[type=submit].default,
 .submit-row input.default {
-    background: #fb8500;
+    background: #fc4a1a;
     color: white;
 }
 
 #changelist-filter h2 {
-    background: #fb8500;
+    background: #fc4a1a;
     color: white;
 }
 
 #nav-sidebar .current-model {
-    background: #feb766;
+    background: #fc4a1a;
 }
