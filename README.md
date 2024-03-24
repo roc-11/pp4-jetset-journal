@@ -171,8 +171,11 @@ The following features have been implemented:
 * The navigation makes clear the name of the company and website.
 * The navigation makes the different sections of information easy to find.
 * On smaller devices the navigation converts to a burger menu
+
 ![Screenshot of the navigation logged in](documentation/features/navigation_logged_in.png)
+
 ![Screenshot of the navigation logged out](documentation/features/navigation_logged_out.png)
+
 ![Screenshot of the navigation mobile](documentation/features/navigation_mobile.png)
 
 ### Homepage
@@ -184,8 +187,11 @@ The following features have been implemented:
 * On smaller devices the layout changes to one column per post to maximise usable screen space. 
 * The next button takes the user to the next 6 blog posts (pagination)
 * The user can click on the blog post's title/excerpt to take them to that post's post detail page. Here they can view the whole post. 
+
 ![Screenshot of the homepage hero section](documentation/features/hero-section-home.png)
+
 ![Screenshot of the homepage blog posts](documentation/features/home-blog-posts.png)
+
 ![Screenshot of the homepage pagination](documentation/features/home-pagination-next.png)
 
 ### Blog Details
@@ -200,29 +206,23 @@ The following features have been implemented:
 * A logged in user can edit or delete their own comment. Editing a comment will resubmit the new comment to the DB for approval. 
 * If a user tries to delete their comment, a modal will appear asking them are they sure they want to delete (defensive programming).
 * A user cannot submit an empty comment.
-![Screenshot of the blog detail page](documentation/features/blog-detail.png)
-![Screenshot of the blog detail - likes-comment-count](documentation/features/likes-comment-count.png)
-![Screenshot of the blog detail - comments-not-logged-in](documentation/features/comments-not-logged-in.png)
-![Screenshot of the blog detail - comments-logged-in](documentation/features/comments-logged-in.png)
-![Screenshot of the blog detail - delete-comment](documentation/features/delete-comment.png)
-![Screenshot of the blog detail - edit-comment](documentation/features/edit-comment.png)
-![Screenshot of the blog detail - edit-comment-not-approved](documentation/features/home-pagination-next.png)
 
+![Screenshot of the blog detail page](documentation/features/blog-detail.png)
+
+![Screenshot of the blog detail - likes-comment-count](documentation/features/likes-comment-count.png)
+
+![Screenshot of the blog detail - comments-not-logged-in](documentation/features/comments-not-logged-in.png)
+
+![Screenshot of the blog detail - comments-logged-in](documentation/features/comments-logged-in.png)
+
+![Screenshot of the blog detail - delete-comment](documentation/features/delete-comment.png)
+
+![Screenshot of the blog detail - edit-comment](documentation/features/edit-comment.png)
+
+![Screenshot of the blog detail - edit-comment-not-approved](documentation/features/home-pagination-next.png)
 
 ```python
 def post_detail(request, slug):
-    """
-    Display an individual :model:`blog.Post`.
-
-    **Context**
-
-    ``post``
-        An instance of :model:`blog.Post`.
-
-    **Template:**
-
-    :template:`blog/post_detail.html`
-    """
 
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -254,6 +254,57 @@ def post_detail(request, slug):
     )
 ```
 
+### About Page
+
+* The About page is a simple page to inform site users all about Jetset Journal. 
+* It consists of about content, an image, and the date edited (from the about DB table).
+* The contents of the about page can be edited with a UI from the admin area. 
+
+![Screenshot of the about page](documentation/features/about_page.png)
+
+![Screenshot of the about DB UI](documentation/features/about_table_ui.png)
+
+```python
+
+def about_jetset_journal(request):
+    """
+    Renders the About page
+    """
+    about = About.objects.all().order_by('-updated_on').first()
+
+    return render(
+        request,
+        "about/about.html",
+        {"about": about},
+    )
+
+```
+
+### Contact Page
+
+* The Contact page consists of a form a user can use to get in touch with Jetset Journal. 
+* Front end validation code ensures users must fill out all fields in order to submit the contact form. 
+* User submitted contact requests can be marked as read by administrators from the admin panel. 
+
+![Screenshot of the contact page](documentation/features/contact-page.png)
+
+![Screenshot of the contact DB](documentation/features/contact-table.png)
+
+### Onscreen notifications/messages
+
+* User messages appear when data is submitted to the DB. 
+* Messages appear in a green box under the navigation bar. 
+* These onscreen notifications inform users when they have submitted to the DB or performed CRUD operations. 
+
+![Screenshot of the messages - messaged-signed-in](documentation/features/messaged-signed-in.png)
+
+![Screenshot of the messages - messages-sign-out](documentation/features/messages-sign-out.png)
+
+![Screenshot of the messages - messages-contact-form-sent](documentation/features/messages-contact-form-sent.png)
+
+![Screenshot of the messages - messages-comment-updated](documentation/features/messages-comment-updated.png)
+
+![Screenshot of the messages - messages-comment-deleted](documentation/features/messages-comment-deleted.png)
 
 ### Future Features
 
