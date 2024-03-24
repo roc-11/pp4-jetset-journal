@@ -175,7 +175,7 @@ The following features have been implemented:
 ![Screenshot of the navigation logged out](documentation/features/navigation_logged_out.png)
 ![Screenshot of the navigation mobile](documentation/features/navigation_mobile.png)
 
-### Navigation
+### Homepage
 
 * The homepage consists of a large hero image. Here the user is welcomed to the blog and provided a short blub about the site.
 * The 'learn more' button takes the user to the 'About' page.
@@ -187,6 +187,72 @@ The following features have been implemented:
 ![Screenshot of the homepage hero section](documentation/features/hero-section-home.png)
 ![Screenshot of the homepage blog posts](documentation/features/home-blog-posts.png)
 ![Screenshot of the homepage pagination](documentation/features/home-pagination-next.png)
+
+### Blog Details
+
+* Each blog post can be clicked - bringing the user to the blog details page for that post.
+* The header section contains the blog title, feature image, author and date the post was created. 
+* The blog post is rendered to the page for the user to read. 
+* Below the post is a like button and a comment sections. These features are read-only for non-logged in users. Logged in users can like or comment on the post.
+* Clicking the heart icon likes the post. Users can click on the heart again to unlike the post. 
+* The number of likes and comments for that particular blog post is clearly visible. 
+* Logged in users can write a comment using the comment form and submit it to the DB. It must be approved by an administrator in order to appear on the front end. 
+* A logged in user can edit or delete their own comment. Editing a comment will resubmit the new comment to the DB for approval. 
+* If a user tries to delete their comment, a modal will appear asking them are they sure they want to delete (defensive programming).
+* A user cannot submit an empty comment.
+![Screenshot of the blog detail page](documentation/features/blog-detail.png)
+![Screenshot of the blog detail - likes-comment-count](documentation/features/likes-comment-count.png)
+![Screenshot of the blog detail - comments-not-logged-in](documentation/features/comments-not-logged-in.png)
+![Screenshot of the blog detail - comments-logged-in](documentation/features/comments-logged-in.png)
+![Screenshot of the blog detail - delete-comment](documentation/features/delete-comment.png)
+![Screenshot of the blog detail - edit-comment](documentation/features/edit-comment.png)
+![Screenshot of the blog detail - edit-comment-not-approved](documentation/features/home-pagination-next.png)
+
+
+```python
+def post_detail(request, slug):
+    """
+    Display an individual :model:`blog.Post`.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`.
+
+    **Template:**
+
+    :template:`blog/post_detail.html`
+    """
+
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+    comments = post.comments.all().order_by("-created_on")
+    comment_count = post.comments.filter(approved=True).count()
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
+            )
+
+    comment_form = CommentForm()
+
+    return render(
+        request,
+        "blog/post_detail.html",
+        {
+            "post": post,
+            "comments": comments,
+            "comment_count": comment_count,
+            "comment_form": comment_form,
+        },
+    )
+```
 
 
 ### Future Features
