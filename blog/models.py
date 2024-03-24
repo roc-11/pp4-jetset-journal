@@ -36,7 +36,8 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    destination = models.CharField(choices=DESTINATIONS, default='europe')
+    destination = models.CharField(
+        choices=DESTINATIONS, default='europe', max_length=50)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
 
