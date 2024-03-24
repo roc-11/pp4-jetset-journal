@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 STATUS = ((0, "Draft"), (1, "Published"))
 DESTINATIONS = (
@@ -76,16 +78,7 @@ class Like(models.Model):
 
 
 class UserProfile(models.Model):
-    """
-    Model representing user profiles with additional information.
-    This model extends the default User model with
-    additional fields to store user profile information.
-    It includes fields for personal details,
-    social media profiles, contact information, and more.
-    The '__str__' method returns the username of the associated user,
-    and 'get_absolute_url' generates the URL for
-    viewing the user's profile page.
-    """
+    
     user = models.OneToOneField(User, null=True,  on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
     profile_picture = CloudinaryField('image', default='placeholder')
@@ -114,4 +107,11 @@ class UserProfile(models.Model):
 
         return True
 
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
 
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    UserProfile.profile.save()
