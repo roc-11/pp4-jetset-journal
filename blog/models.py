@@ -79,7 +79,8 @@ class Like(models.Model):
 
 class UserProfile(models.Model):
     
-    user = models.OneToOneField(User, null=True,  on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        User, null=True,  on_delete=models.CASCADE, related_name='user_profile')
     bio = models.TextField(blank=True)
     profile_picture = CloudinaryField('image', default='placeholder')
     date_of_birth = models.DateField(blank=True, null=True)
@@ -108,10 +109,11 @@ class UserProfile(models.Model):
         return True
 
 @receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
+def create_or_update_user_profile(sender, instance, created, **kwargs):
+    """
+    Create or update the user profile
+    """
     if created:
         UserProfile.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    UserProfile.profile.save()
+    # Existing users: just save the profile
+    instance.userprofile.save()
