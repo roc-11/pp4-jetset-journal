@@ -150,7 +150,44 @@ Chivo is used for title headings, while Krub is used for almost all other text. 
 
 ## Features
 
+The following features have been implemented:
+1. Fully responsive website consisting of:
+  - Home (the blog)
+  - About
+  - Contact
+  - Login
+  - Logout
+  - Register
+  - Blog Detail - with CRUD functionality for logged in users to like a post and/or comment on a post (comments can be edited or deleted)
+
 ### Existing Features
+
+### Navigation
+
+* Featured at the top of the page, the navigation shows the Jetset Journal logo in the left corner. For smaller devices, the logo centred at the top of the page.
+* The other navigation links are: Home, About, Contact Us and Login/Register/Logout which link to different pages of the site. 
+* The active page which the user is currently on is underlined. 
+* When the user hovers over a link, the link is in bold.
+* The navigation makes clear the name of the company and website.
+* The navigation makes the different sections of information easy to find.
+* On smaller devices the navigation converts to a burger menu
+![Screenshot of the navigation logged in](documentation/features/navigation_logged_in.png)
+![Screenshot of the navigation logged out](documentation/features/navigation_logged_out.png)
+![Screenshot of the navigation mobile](documentation/features/navigation_mobile.png)
+
+### Navigation
+
+* The homepage consists of a large hero image. Here the user is welcomed to the blog and provided a short blub about the site.
+* The 'learn more' button takes the user to the 'About' page.
+* below the hero section is all of the blog posts. The posts are displayed in 2 columns, with 6 posts per page. 
+* Each post is in a bootstrap card, with the post's: destination, title, author, excerpt, date created and feature image.
+* On smaller devices the layout changes to one column per post to maximise usable screen space. 
+* The next button takes the user to the next 6 blog posts (pagination)
+* The user can click on the blog post's title/excerpt to take them to that post's post detail page. Here they can view the whole post. 
+![Screenshot of the homepage hero section](documentation/features/hero-section-home.png)
+![Screenshot of the homepage blog posts](documentation/features/home-blog-posts.png)
+![Screenshot of the homepage pagination](documentation/features/home-pagination-next.png)
+
 
 ### Future Features
 
@@ -260,6 +297,61 @@ Using this approach, I was able to apply the MoSCow prioritization and labels to
 - **Won't Have**: not a priority for this iteration (future development)
 
 Each User Story was also assigned a label (according to the MoSCoW System) so I could prioritise the work. Please refer above to [Agile Development Process](#agile-development-process) for more details. 
+
+## Technologies Used 
+
+The site has been built with the following tech and tools:
+1. HTML5
+2. CSS
+3. JavaScript
+4. Python
+5. Django - database framework
+6. Jinja - HTML logic rendering for dynamic content
+7. ElephantSQL - database hosting
+8. Cloudinary - media hosting
+9. Bootstrap 4
+10. JQuery
+11. GitHub Projects - agile management, kanban, roadmap and milestones
+12. GitHub Repo - code storage
+13. Git - version control
+14. GitPod & VS Code - IDE
+15. Heroku - live site hosting
+
+### Frameworks, Libraries & Programs Used
+
+* [Google Fonts](https://fonts.google.com/)
+  * Google fonts was used to import the fonts "Chivo", "Krub", and "Lato" into the style.css file. These fonts were used throughout the project.
+* Font Awesome
+  * [Font Awesome](https://fontawesome.com/) was used on almost all pages throughout the website to import icons (e.g. social media icons) for UX purposes.
+* Gitpod 
+  * [Gitpod](https://www.gitpod.io/) was used for writing code, commiting, and then pushing to GitHub.
+  * IDE used to code the project.
+* [GitHub](https://github.com/)
+  * GitHub was used to store the project after pushing
+* [Adobe Photoshop](https://www.adobe.com/ie/ "link to the adobe homepage")
+  * Adobe Photoshop was used to resize images
+* [Balsamiq](https://balsamiq.com/)
+  * Balsamiq was used to create the wireframes during the design phase of the project.
+* [Website Mockup Generator](https://websitemockupgenerator.com/)
+  * 'Website Mockup Generator' was used to visualise responsive design throughout the process and to generate mockup imagery.
+* [Canva](https://www.canva.com/)
+  * Canva was used to generate a logo for the website.
+* [TinyPNG](https://tinypng.com/)
+  * TinyPNG was used for image compression and to improve wesbite load speed.
+* [Cloudinary](https://cloudconvert.com/webp-converter)
+  * Cloud Convert was used to convert images to webp files (to reduce file size and increase load speed).
+* [Lucid Chart](https://lucid.app/) 
+  * Lucid Chart was used to create DB schema and flow diagrams.
+* [Favicon generator](https://favicon.io/favicon-converter/)
+  * Favicon generator was used to create a favicon image.
+
+* font-awesome - icons
+* bootstrap-made - HTML and CSS templates
+* allauth - sign-up and login
+* cripsy forms - improved form styling and validation
+* django.messages - success and alert bootstrap messages
+* django.core.paginator - pagination
+* django.test - for running automated tests
 
 ## Testing
 
@@ -408,9 +500,48 @@ You can fork this repository by using the following steps:
 
 ## Credits
 
+### Code
+
+I followed a number of tutorials in order to create this Django website. I was also inspired and helped by the "I Think Therefore I Blog" Code institute walkthrough project.
+* [How to create a like button with counter in django by Pyplane](https://www.youtube.com/watch?v=xqFM6ykQEwo)
+* [allauth](https://django-allauth.readthedocs.io/en/latest/)
+* [Django CRUD Functions](https://www.youtube.com/watch?v=EX6Tt-ZW0so)
+* [Testing in Django](https://docs.djangoproject.com/en/4.2/topics/testing/)
+
+I spent a great deal of time trying to create a "My Profile" page for the website. This feature would allow users to manage their profile and add/edit their information. Unfortunately due to time constraints, the code for this had to be removed as it did not function perfectly. It has moved to a future implementation. 
+* [How to extend Django User Model](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html)
+* [Profile Page](https://dontrepeatyourself.org/post/django-blog-tutorial-part-3-users-authentication/)
+
 ### Content
 
+* All travel blog content was written specifically for this project.
+* I am an avid traveller and have always wanted to create my own travel blog to share my adventures!
+* I got a lot of inspiration for the travel blog from the following blogs I follow myself: 
+    - [Adventurous Kate](https://www.adventurouskate.com/)
+    - [Young Adventuress](https://youngadventuress.com/category/destinations)
+    - [The Blonde Abroad](https://www.theblondeabroad.com/destinations/)
+
 ### Media
+
+* The Jetset Journal logo, favicon and icon was created using [Canva](https://www.canva.com/ "Link to Canva Home Page"). 
+* Hero Image - [Pexels: Ajay Donga](https://www.pexels.com/photo/woman-and-man-riding-on-motorcycle-2174656/)
+* All of the images were sourced from various artists on [Pexels](https://www.pexels.com/ "Link to Pexels.com").
+ - [Pexels: Ajay Donga](https://www.pexels.com/photo/woman-and-man-riding-on-motorcycle-2174656/)
+ - [Pexels: Porapak Apichodilok](https://www.pexels.com/photo/person-holding-world-globe-facing-mountain-346885/)
+ - [Pexels: Valeria Ushakova](https://www.pexels.com/photo/woman-wearing-brown-coat-holding-white-flower-bouquet-and-ice-cream-3094219/)
+ - [Pexels: Flo Maderebner](https://www.pexels.com/photo/woman-crossing-on-bridge-238631/)
+ - [Pexels: Tomáš Malík](https://www.pexels.com/photo/people-traveling-using-boat-1660996/)
+ - [Pexels: Pixabay](https://www.pexels.com/photo/marina-bay-sand-singapore-290597/)
+ - [Pexels: Georg](https://www.pexels.com/photo/palace-of-westminster-and-big-ben-london-england-3071145/)
+ - [Pexels: Aleksandar Pasaric](https://www.pexels.com/photo/aerial-photography-of-high-rise-buildings-1386444/)
+ - [Pexels: Ryutaro Tsukata](https://www.pexels.com/photo/lisbon-residential-district-roofs-in-twilight-5191373/)
+ - [Pexels: Nadine Wuchenauer](https://www.pexels.com/photo/photo-of-buildings-near-body-of-water-1529040/)
+ - [Pexels: Juv](https://www.pexels.com/photo/city-portrait-2106452/)
+ - [Pexels: Anatasia Shuraeva](https://www.pexels.com/photo/aerial-view-of-city-buildings-4213372/)
+ - [Pexels: Detait](https://www.pexels.com/photo/drone-shot-of-lake-bled-8920362/)
+ - [Pexels: Iakub Arifulin](https://www.pexels.com/photo/woman-standing-and-looking-at-nine-arches-bridge-in-sri-lanka-11675420/)
+ - [Pexels: Darren Lawrence](https://www.pexels.com/photo/woman-in-black-and-brown-bikini-sitting-on-brown-wooden-dock-3822113/)
+* The icons across the site were sourced from [Font Awesome](https://fontawesome.com/ "Link to Font Awesome homepage")
 
 ## Acknowledgements
 
