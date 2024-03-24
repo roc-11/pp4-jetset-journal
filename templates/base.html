@@ -68,7 +68,7 @@
                     <!-- User Account Section - Login/Logout/Register links-->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/profile' %} active{% endif %}" aria-current="page" href="{% url 'profile' %}">
+                        <a class="nav-link {% if request.path == '/profile' %} active{% endif %}" aria-current="page" href="{% url 'profile' user.username %}">
                             <i class="fa-gauge"></i> My Profile</a>
                     </li>
                     <li class="nav-item">
