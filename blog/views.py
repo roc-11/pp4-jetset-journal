@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, Comment, Like, User
+from .models import Post, Comment, Like, User, UserProfile
 from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
 
@@ -114,10 +114,10 @@ class PostLike(View):
 def profile(request, username):
 
     user = get_object_or_404(User, username=username)
-    profile = get_object_or_404(Profile, user=user)
+    profile = get_object_or_404(UserProfile, user=user)
 
     context = {
-        'my_profile': my_profile
+        'profile': profile
     }
 
     return render(request, 'blog/my_profile.html', {'profile': profile, 'user': user})
