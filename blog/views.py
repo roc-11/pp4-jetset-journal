@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, Like, User
 from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here - Class Based View, PostList
 class PostList(generic.ListView):
@@ -107,3 +109,15 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
+@login_required
+def profile(request, username):
+
+    user = get_object_or_404(User, username=username)
+    profile = get_object_or_404(Profile, user=user)
+
+    context = {
+        'my_profile': my_profile
+    }
+
+    return render(request, 'blog/my_profile.html', {'profile': profile, 'user': user})
