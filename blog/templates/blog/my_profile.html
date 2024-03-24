@@ -3,6 +3,7 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
 <section class="bg-light section-header">
     <div class="container">
       <div class="section-title">
@@ -15,6 +16,7 @@
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
           <p>User: {{ user }}</p>
+          <p>Profile: {{ profile }}</p>
           <p>User: {{ user.email }}</p>
           <p>User: {{ user.user_profile.bio }}</p>
         </div>
@@ -24,4 +26,13 @@
         </div>
     </div>
 </div>
+{% else %}
+<h3 class="text-center text-dark">
+  You are not authorised to view this section! Please login to your profile.
+</h3>
+<div class="flex text-center mb-3">
+  <a href="{{ login_url }}" class="btn btn-primary btn-sm">Login</a>
+</div>
+
+{% endif %}
 {% endblock %}

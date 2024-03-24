@@ -110,14 +110,14 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-@login_required
-def profile(request, username):
+# @login_required
+# def profile(request, username):
 
-    user = get_object_or_404(User, username=username)
-    profile = get_object_or_404(UserProfile, user=user)
+#     user = get_object_or_404(User, username=username)
+#     profile = get_object_or_404(UserProfile, user=user)
 
-    context = {
-        'profile': profile
-    }
+#     context = {
+#         'profile': profile
+#     }
 
-    return render(request, 'blog/my_profile.html', {'profile': profile, 'user': user})
+#     return render(request, 'blog/my_profile.html', {'profile': profile, 'user': user})
