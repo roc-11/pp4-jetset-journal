@@ -39,11 +39,13 @@ body {
 }
 
 .image-flash {
-    position: absolute;
     bottom: 5%;
     min-width: 30%;
+    max-width: 60%;
     left: -2px;
-    background-color: #188181;
+    background-color: #3ea091;
+    color: white;
+    padding-left: 5%;
 }
 
 .scale {
@@ -267,4 +269,12 @@ section {
     color: #E84610;
     background: transparent;
     border: none;
+}
+
+#heroDiv {
+  background-color: #4ABDAC;
+}
+
+#djangoMsgs {
+  background-color: #4ABDAC;
 }

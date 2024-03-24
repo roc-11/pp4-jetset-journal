@@ -6,80 +6,30 @@
 <!-- HEADER -->
 <!-- https://bootstrapbrain.com/component/bootstrap-5-hero-image-section-example/#preview -->
 <!-- Hero 1 - Bootstrap Brain Component -->
-<section class="bsb-hero-1 px-3 bsb-overlay bsb-hover-pull" style="background-image: url('static/images/sample-hero-image.jpg');">
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-12 col-md-11 col-lg-9 col-xl-7 col-xxl-6 text-center text-white">
-            <h1 class="display-3 fw-bold mb-3">Welcome</h1>
-            <p class="lead mb-5">Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.</p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn bsb-btn-3xl btn-light gap-3">Search</button>
-                <button type="button" class="btn bsb-btn-3xl btn-outline-light">Buy Credits</button>
-            </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- index.html content starts here 
-<div class="container-fluid mt-3">
-    <div class="row">
-
-         Blog Entries Column 
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in post_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                </div>
-                            </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.excerpt }}</p>
-                            </a>
-
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}}
-                            </p>
-                        </div>
-                    </div>
+<div id="heroDiv">
+    <section class="bsb-hero-1 px-3 bsb-overlay bsb-hover-pull" style="background-image: url('static/images/sample-hero-image.jpg');">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-12 col-md-11 col-lg-9 col-xl-7 col-xxl-6 text-center text-white">
+                <h1 class="display-3 fw-bold mb-3">Welcome</h1>
+                <p class="lead mb-5">Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn bsb-btn-3xl btn-light gap-3">Search</button>
+                    <button type="button" class="btn bsb-btn-3xl btn-outline-light">Buy Credits</button>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-
+                </div>
             </div>
         </div>
-    </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li>
-                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
-            </li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li>
-                <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-</div>-->
+    </section>
+</div>
 
 <!-- index.html content starts here -->
 <!-- https://getbootstrap.com/docs/5.3/examples/blog/# -->
-<h2 class="text-center mt-3">
+<div class="mt-5 mb-5">
+<h2 class="text-center text-uppercase mt-3">
     Latest Posts
 </h2>
+</div>
 <main class="container">
     <!-- Blog Entries Column -->
     <div class="row mb-2">
@@ -91,10 +41,10 @@
                     <strong class="d-inline-block mb-2 text-primary-emphasis">Destination: <span class="text-uppercase">{{ post.destination }}</span></strong>
                     <!-- <h3 class="mb-0">Featured Post</h3> -->
                     <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                        <h3 class="card-title">{{ post.title }}</h3>
+                        <h3 class="card-title mb-3">{{ post.title }}</h3>
                         <p class="card-text  mb-auto">{{ post.excerpt }}</p>
                     </a>
-                    <div class="author mb-1 text-body-secondary">Author: {{ post.author }}</div>
+                    <div class="image-flash author mb-1 mt-2">Author: {{ post.author }}</div>
                     <hr />
                     <div class="mb-1 text-body-secondary">{{ post.created_on}}</div>
                 </div>
