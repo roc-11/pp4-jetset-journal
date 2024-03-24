@@ -4,7 +4,7 @@
 
 ![Jetset Journal Mockup Image]()
 
-[View the live project here]()
+[View the live project here](https://pp4-jetset-journal-4cbea9e2528c.herokuapp.com/)
 
 [View GitHub repository](https://github.com/roc-11/pp4-jetset-journal)
 
@@ -67,6 +67,14 @@ All epics, user stories with their acceptance criteria and tasks can be viewed o
         - As a Site User I can click on the About link so that I can read about the site.
     19. USERSTORY #19: Add and update the about text
         - As a Site Admin I can create or update the about page content so that it is available on the site.
+    20. USERSTORY #20: Create Like Model
+        - As a Site Admin I can create Like table/model so that I can manage likes.
+    21. USERSTORY #21: View Likes and Like/Unlike a post
+        - As a Site User/Admin I can view likes on an individual post so that I can be an active member of Jetset Journal/react to a blog post.
+    22. USERSTORY #22: Create User Profile/Dashboard Page
+        - As a Logged in User I can view my user profile so that manage my profile and update my user details.
+    23. USERSTORY #23: Edit User Profile/Dashboard Page
+        - As a Logged in User I can edit my user profile so that manage my profile and update my user details.
 
 ##### Site User
 New Users
