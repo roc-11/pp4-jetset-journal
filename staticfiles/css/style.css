@@ -38,7 +38,6 @@ body {
     position: relative;
 }
 
-
 .image-flash {
     bottom: 5%;
     min-width: 30%;
@@ -70,7 +69,7 @@ body {
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: #318b7e;
     color: white;
     position: relative;
 }
@@ -87,7 +86,7 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    background: #318b7e;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
@@ -97,6 +96,10 @@ body {
 .post-link {
     text-decoration: none;
     color: #445261;
+}
+
+#postSubTitle {
+  color: #f4f4f4;
 }
 
 .post-link:hover,
@@ -123,11 +126,11 @@ body {
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23BBBB;
+    color: #318b7e;
 }
 
 .link {
-    color: #23BBBB;
+    color: #318b7e;
     text-decoration: none;
 }
 
@@ -163,6 +166,102 @@ body {
     color: rgb(222, 146, 168);
 }
 
+#login img{
+    margin: 10px 0;
+  }
+  #login .center {
+    text-align: center;
+  }
+  
+  #login .login {
+    max-width: 300px;
+    margin: 35px auto;
+  }
+  
+  #login .login-form{
+    padding:0px 25px;
+  }
+
+  /*-------------------------------------------------------------
+# Sections General
+-------------------------------------------------------------*/
+section {
+    padding: 45px 0 10px 0;
+  }
+  
+  .section-bg {
+    background-color: #f7fbfe;
+  }
+  
+  .section-title {
+    text-align: center;
+  }
+  
+  .section-title h1 {
+    font-size: 65px;
+    font-weight: 600;
+    padding-bottom: 20px;
+    position: relative;
+    color: #E84610;
+  }
+  
+  .section-title h2 {
+    font-size: 30px;
+    font-weight: 300;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  
+  .jj-icon {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 20px;
+    margin-right: 5px;
+  }
+  
+  .section-title p {
+    margin-bottom: 0;
+  }
+  
+  .section-header {
+    margin-top: 75px;
+    margin-bottom: 5px;
+  }
+  
+  @media (max-width: 768px) {
+    .section-title h1 {
+      font-size: 45px;
+      font-weight: 600;
+      padding-bottom: 20px;
+      position: relative;
+      color: #E84610;
+    }
+  
+    .jj-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+      margin-right: 5px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .section-title h1 {
+      font-size: 30px;
+      font-weight: 600;
+      padding-bottom: 20px;
+      position: relative;
+      color: #E84610;
+    }
+  
+    .jj-icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 20px;
+      margin-right: 5px;
+    }
+  }
+
 .btn-like {
     color: #E84610;
     border: none;
@@ -177,9 +276,25 @@ body {
 }
 
 #heroDiv {
-    background-color: #4ABDAC;
-  }
+  background-color: #4ABDAC;
+}
 
-  #djangoMsgs {
-    background-color: #4ABDAC;
-  }
+#djangoMsgs {
+  background-color: #4ABDAC;
+}
+
+.section-foot {
+  background-color: #4ABDAC;
+}
+
+.comment-div {
+  background-color: white;
+  border-radius: 5%;
+}
+
+#logged-in-as {
+  background-color: #3ea091;
+  color:white;
+  display:inline;
+  border-radius: 2%;
+}
