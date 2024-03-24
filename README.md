@@ -10,25 +10,52 @@
 
 ## Introduction
 
+Jetset Journal is a website tailored for individuals passionate about travel and seeking new adventures. Serving as a comprehensive travel blog, the platform enables administrators to curate and publish engaging blog posts accessible to users on the front end.
+
+Visitors to the website have the opportunity to explore each blog post, accessing detailed information and captivating images of various destinations. Additionally, users can initiate contact with Jetset Journal through an integrated contact form, facilitating seamless communication.
+
+Registering and logging in to the website grants users the ability to interact further by leaving comments or expressing appreciation for blog posts. Furthermore, registered users have the option to edit or delete their comments as desired.
+
+To maintain the integrity of the platform, all comments undergo verification and approval by an administrator prior to publication on the website. This ensures that only authenticated and relevant contributions are displayed to the audience.
+
 ## UX
 
 ### Planning Stage
 
 #### Aim
 
+The aim of Jetset Journal is to inspire travel enthusiasts by providing a platform for exploring, sharing, and celebrating global adventures. Through engaging blog content, our website aims to ignite wanderlust, encourage cultural exchange, and foster a community of like-minded adventurers. From discovering hidden gems to connecting with fellow travelers, Jetset Journal is the go-to destination for planning unforgettable journeys and creating lifelong memories.
+
 #### Application Goals
-* To
-* To
-* To
-* To
+
+Goals for New Users
+* As a new site user, I would like to view an intuitive website with straightforward navigation that is fully responsive.
+* As a new site user, I would like to create an account so that I can comment on and like blog posts. 
+* As a new site user, I would like to easily edit and delete any comments that I make.
+* As a new site user, I would like to easily contact the website administrators with questions.
+* As a new site user, I would like to easily understand the main purpose of the site.
+* As a new user, I want attractive and relevant visuals and colour schemes that work with the content.
+
+Goals for Returning Users
+* As a returning site user, I would like to view an intuitive website with straightforward navigation that is fully responsive.
+* As a returning site user, I would like to easily log into my account so that I can comment on and like blog posts. 
+* As a returning site user, I would like to easily edit and delete any comments that I make.
+
+Goals for Site Administrators
+* As a site administrator, I would like to have a recognizable branded admininstator area to manage users, blog posts, blogs comments and blog likes.
+* As a site administrator, I would like to easily create blog postings in draft or published form, for display on Jetset Journal.
+* As a site administrator, I would like to easily edit the about text and profile picture using a user-friendly UI.
+* As a site administrator, I would like to have control over approving user comments before they appear on the front-end.
+* As a site administrator, I would like to manage user contact requests and mark them as read.
+* As a site administrator, I would like to have a simple UI that will encourage users to return and engage with the blog.
 
 #### User Stories
 
-All epics, user stories with their acceptance criteria and tasks can be viewed on the LINK TO GITHUB PROJECT BOARD
+All epics, user stories with their acceptance criteria and tasks can be viewed on the [Github Project Board](https://github.com/users/roc-11/projects/4).
 
-- There were XNUM Epics created from Project Concept to Project Submission.
+- There were 15 Epics created from Project Concept to Project Submission.
 
-- There were XNUM User Stories Created including:
+- There were 23 User Stories Created including:
     1. USERSTORY # 1: Gather General Requirements & Visual Layout
         - As a Developer I can see how the site should be laid out and make a detailed plan so that the site functionality can be developed in an incremental manner.
     2. USERSTORY #2: Initial Django project setup
@@ -75,16 +102,6 @@ All epics, user stories with their acceptance criteria and tasks can be viewed o
         - As a Logged in User I can view my user profile so that manage my profile and update my user details.
     23. USERSTORY #23: Edit User Profile/Dashboard Page
         - As a Logged in User I can edit my user profile so that manage my profile and update my user details.
-
-##### Site User
-New Users
-- As a new site user,
-
-Returning Users
-- As a returning site user,
-
-##### Site Admin
-- As a site admin,
 
 ### Wireframes
 
