@@ -286,3 +286,8 @@ section {
 .section-foot {
   background-color: #4ABDAC;
 }
+
+.comment-div {
+  background-color: white;
+  border-radius: 5%;
+}

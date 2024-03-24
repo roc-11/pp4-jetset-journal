@@ -74,10 +74,10 @@
         <!-- We want a for loop inside the empty control tags
           to iterate through each comment in comments -->
         {% for comment in comments %}
-        <div class="p-2 comments
+        <div class="p-2 comments comment-div mb-3
           {% if not comment.approved and comment.author == user %}
           faded{% elif not comment.approved %} d-none{% endif %}">
-          <p class="font-weight-bold">
+          <p class="font-weight-bold text-muted">
             {{ comment.author }}
             <span class="font-weight-normal">
               {{ comment.created_on }}
