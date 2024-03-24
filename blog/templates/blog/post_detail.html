@@ -20,6 +20,14 @@
                 <!--<img src="{% static 'images/sample-blog-image.jpg' %}" class="scale" alt="placeholder">-->
             </div>
         </div>
+        <!-- for mobile -->
+        <div class="d-none hidden mobile-image">
+          {% if "placeholder" in post.featured_image.url %}
+          <img class="scale" width="200" height="250" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+          {% else %}
+          <img class="scale" width="200" height="250" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+          {% endif %}
+        </div>
     </div>
 </div>
 

@@ -48,7 +48,7 @@
                     <hr />
                     <div class="mb-1 text-body-secondary">{{ post.created_on}}</div>
                 </div>
-                <div class="col-auto d-none d-lg-block">
+                <div class="col-auto d-none d-lg-block blog-images">
                     {% if "placeholder" in post.featured_image.url %}
                     <img class="blog-placeholder-img" style="object-fit: cover;" width="200" height="250" src="{% static 'images/default.jpg' %}" alt="placeholder image">
                     {% else %}

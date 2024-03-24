@@ -93,6 +93,45 @@ body {
     z-index: 100;
 }
 
+@media screen and (max-width: 768px) {
+
+  /* Show blog image as block content on mobile */
+ .mobile-image {
+    display: none !important;
+    overflow: hidden;
+ }
+
+}
+
+@media screen and (max-width: 767px) {
+
+  /* Show blog image as block content on mobile */
+  .masthead {
+    height: 64vh;
+  }
+
+ .mobile-image {
+    display: block !important;
+ }
+
+}
+
+@media screen and (max-width: 991px) {
+  .blog-images {
+    display: block !important;
+    margin: auto;
+   }
+}
+
+@media screen and (max-width: 991px) {
+
+  /* Show blog image as block content on mobile */
+ .masthead-image .scale {
+    height: 100% !important;
+ }
+
+}
+
 .post-link {
     text-decoration: none;
     color: #445261;
