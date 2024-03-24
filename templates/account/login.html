@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% load i18n %}
 {% load account socialaccount %}
@@ -10,10 +11,10 @@
 <section class="bg-light section-header">
     <div class="container">
       <div class="section-title">
-        <h1>LOGIN</h1>
+        <h1 class="text-uppercase"><img class="jj-icon" alt="Jetset Journal Icon" src="{% static 'images/jj_logo.png' %}">Login</h1>
       </div>
     </div>
-</section>
+  </section>
 
 <div id="login-container" class="container">
     <div class="row">
@@ -24,7 +25,7 @@
             <p class="text-center text-muted">{% blocktrans %}To leave a comment or like a post, please log in.{% endblocktrans %}</p>
         </div>
     </div>
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-md-8 mt-3 offset-md-2 text-center">
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
@@ -35,7 +36,7 @@
                 <button class="btn btn-signup right text-uppercase" type="submit">{% trans "Sign In" %}</button>
             </form>
             <p class="mt-4 text-muted">{% blocktrans %}
-                Don't have an account? Please <a class="link text-uppercase" href="{{ signup_url }}">sign up</a>
+                Don't have an account? Please <strong><a class="link text-uppercase" href="{{ signup_url }}">sign up</a></strong>
                 {% endblocktrans %}</p>
         </div>
     </div>

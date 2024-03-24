@@ -126,11 +126,11 @@ body {
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23BBBB;
+    color: #318b7e;
 }
 
 .link {
-    color: #23BBBB;
+    color: #318b7e;
     text-decoration: none;
 }
 
@@ -290,4 +290,11 @@ section {
 .comment-div {
   background-color: white;
   border-radius: 5%;
+}
+
+#logged-in-as {
+  background-color: #3ea091;
+  color:white;
+  display:inline;
+  border-radius: 2%;
 }

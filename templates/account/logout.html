@@ -2,16 +2,19 @@
 
 {% load i18n %}
 
+{% load static %}
+
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
+
 <section class="bg-light section-header">
     <div class="container">
       <div class="section-title">
-        <h1>LOGOUT</h1>
+        <h1 class="text-uppercase"><img class="jj-icon" alt="Jetset Journal Icon" src="{% static 'images/jj_logo.png' %}">Logout</h1>
       </div>
     </div>
-</section>
+  </section>
 
 <div class="container">
     <div class="row">
@@ -29,7 +32,7 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-signup right text-uppercase" type="submit">{% trans 'Sign Out' %}</button>
+                <button class="btn btn-signup btn-lg right text-uppercase" type="submit">{% trans 'Sign Out' %}</button>
             </form>
         </div>
     </div>

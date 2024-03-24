@@ -1,17 +1,19 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
+
 <section class="bg-light section-header">
   <div class="container">
     <div class="section-title">
-      <h1>SIGNUP</h1>
+      <h1 class="text-uppercase"><img class="jj-icon" alt="Jetset Journal Icon" src="{% static 'images/jj_logo.png' %}">Sign Up</h1>
     </div>
   </div>
 </section>
+
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
@@ -19,13 +21,13 @@
 
       <p class="mt-4 text-center text-muted">{% blocktrans %}
         Welcome back to the Jetset Journal blog. Already have an account?
-        <a class="link text-uppercase" href="{{ login_url }}">sign in</a>
+        <strong><a class="link text-uppercase" href="{{ login_url }}">sign in</a></strong>
         instead.
       {% endblocktrans %}</p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
+  <div class="row mb-4">
+    <div class="col-md-8 mt-3 offset-md-4">
       <form class="signup" id="signup_form" method="post"
         action="{% url 'account_signup' %}">
         {% csrf_token %}
