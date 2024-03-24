@@ -1,4 +1,4 @@
-# [PP4 Jetset Journal] ()
+# PP4 Jetset Journal
 
 ## Developer: Róisín O'Connell 
 

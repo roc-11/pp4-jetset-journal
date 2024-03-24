@@ -338,3 +338,20 @@ section {
   display:inline;
   border-radius: 2%;
 }
+
+#welcome-head {
+  background-color: #F7B733;
+  color:white;
+  border-radius: 10%;
+  width: 50%;
+  margin: auto;
+}
+
+#learnMoreBtn {
+  border: 2px solid #F7B733;
+}
+
+#learnMoreBtn a {
+  text-decoration: none;
+  color: #F7B733;
+}
