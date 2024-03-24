@@ -98,11 +98,11 @@ Returning Users
 
 ### Flow Chart
 
-![Flow Chart]()
+![Flow Chart](documentation/Jetset_Journal_Flowchart.png)
 
 ### Colour Scheme
 
-![Colour Scheme]()
+![Colour Scheme](documentation/colour_scheme.png)
 
 ### Typography
 
@@ -115,6 +115,8 @@ Returning Users
 ## Tools & Technologies Used
 
 ## Database Design
+
+![Database Schema](documentation/Database_Schema.png)
 
 ## Agile Development Process
 
