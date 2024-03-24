@@ -3,22 +3,27 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+
+<section class="bg-light section-header">
+    <div class="container">
+      <div class="section-title">
+        <h1 class="text-uppercase"><img class="jj-icon" alt="Jetset Journal Icon" src="{% static 'images/jj_logo.png' %}">Contact</h1>
+      </div>
+    </div>
+  </section>
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 my-5">
-            <h2>Let's collaborate!</h2>
-            <p>I believe in the power of shared knowledge and collective effort.
-                Whether you have a project in mind, wish to co-author
-                an article, or simply want to brainstorm some ideas,
-                I'm excited to hear from you. Fill out the form
-                and we can get the ball rolling!</p>
+            <h2>Get in Touch!</h2>
+            <p>Hey there, fellow wanderers! Ready to kickstart our travel chat? Whether you've got burning questions about your next adventure, want to share your own travel tales, or simply fancy a virtual high-five, I'm all ears! Drop me a line using the form below, shoot me an email, or slide into my DMs on social – whichever floats your travel boat! Can't wait to hear from you and start exploring the world together! 🌍✈️</p>
 
             <!-- add your form here. Your submit button should 
                                 have the classes of btn, btn-secondary -->
                                 <form method="post">
                                     {{ contact_form | crispy }}
                                     {% csrf_token %}
-                                    <button class="btn btn-secondary"
+                                    <button class="btn btn-signup btn-lg"
                                       type="submit">Submit</button>
                                   </form>
         </div>
