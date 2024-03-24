@@ -2,7 +2,7 @@
 
 ## Developer: Róisín O'Connell 
 
-![Jetset Journal Mockup Image]()
+![Jetset Journal Mockup Image](documentation/jetset_journal_mockup.png)
 
 [View the live project here](https://pp4-jetset-journal-4cbea9e2528c.herokuapp.com/)
 
