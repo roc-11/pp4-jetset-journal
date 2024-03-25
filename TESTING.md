@@ -311,20 +311,20 @@ The aforementioned tests are just an example of a few different project scenario
 
 | User Story | Screenshot |
 | --- | --- |
-| As a new site user, I would like to view an intuitive website with straightforward navigation that is fully responsive. | ![screenshot](documentation/navigation_logged_out.png) |
-| As a new site user, I would like to create an account so that I can comment on and like blog posts. | ![screenshot](documentation/signup.png) |
-| As a new site user, I would like to easily edit and delete any comments that I make. | ![screenshot](documentation/edit-comment.png) |
-| As a new site user, I would like to easily contact the website administrators with questions. | ![screenshot](documentation/contact-page.png) |
-| As a new site user, I would like to easily understand the main purpose of the site. | ![screenshot](documentation/about_page.png) |
+| As a new site user, I would like to view an intuitive website with straightforward navigation that is fully responsive. | ![screenshot](documentation/features/navigation_logged_out.png) |
+| As a new site user, I would like to create an account so that I can comment on and like blog posts. | ![screenshot](documentation/features/signup.png) |
+| As a new site user, I would like to easily edit and delete any comments that I make. | ![screenshot](documentation/features/edit-comment.png) |
+| As a new site user, I would like to easily contact the website administrators with questions. | ![screenshot](documentation/features/contact-page.png) |
+| As a new site user, I would like to easily understand the main purpose of the site. | ![screenshot](documentation/features/about_page.png) |
 | As a new user, I want attractive and relevant visuals and colour schemes that work with the content. | n/a |
-| As a returning site user, I would like to view an intuitive website with straightforward navigation that is fully responsive. | ![screenshot](documentation/navigation_logged_in.png) |
-| As a returning site user, I would like to easily log into my account so that I can comment on and like blog posts. | ![screenshot](documentation/login.png) |
-| As a returning site user, I would like to easily edit and delete any comments that I make. | ![screenshot](documentation/edit-comment.png) |
-| As a site administrator, I would like to have a recognizable branded admininstator area to manage users, blog posts, blogs comments and blog likes. | ![screenshot](documentation/admin-area.png) |
-| As a site administrator, I would like to easily create blog postings in draft or published form, for display on Jetset Journal. | ![screenshot](documentation/admin-create-post.png) |
-| As a site administrator, I would like to easily edit the about text and profile picture using a user-friendly UI. | ![screenshot](documentation/about_table_ui.png) |
-| As a site administrator, I would like to have control over approving user comments before they appear on the front-end. | ![screenshot](documentation/edit-comment-not-approved.png) |
-| As a site administrator, I would like to manage user contact requests and mark them as read. | ![screenshot](documentation/contact-table.png) |
+| As a returning site user, I would like to view an intuitive website with straightforward navigation that is fully responsive. | ![screenshot](documentation/features/navigation_logged_in.png) |
+| As a returning site user, I would like to easily log into my account so that I can comment on and like blog posts. | ![screenshot](documentation/features/login.png) |
+| As a returning site user, I would like to easily edit and delete any comments that I make. | ![screenshot](documentation/features/edit-comment.png) |
+| As a site administrator, I would like to have a recognizable branded admininstator area to manage users, blog posts, blogs comments and blog likes. | ![screenshot](documentation/features/admin-area.png) |
+| As a site administrator, I would like to easily create blog postings in draft or published form, for display on Jetset Journal. | ![screenshot](documentation/features/admin-create-post.png) |
+| As a site administrator, I would like to easily edit the about text and profile picture using a user-friendly UI. | ![screenshot](documentation/features/about_table_ui.png) |
+| As a site administrator, I would like to have control over approving user comments before they appear on the front-end. | ![screenshot](documentation/features/edit-comment-not-approved.png) |
+| As a site administrator, I would like to manage user contact requests and mark them as read. | ![screenshot](documentation/features/contact-table.png) |
 | As a site administrator, I would like to have a simple UI that will encourage users to return and engage with the blog. | n/a |
 
 ## Automated Testing
