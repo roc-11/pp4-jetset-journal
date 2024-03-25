@@ -239,8 +239,8 @@ h3 {
     padding:0px 25px;
   }
 
-  /*-------------------------------------------------------------
-# Sections General
+/*-------------------------------------------------------------
+# Sections 
 -------------------------------------------------------------*/
 section {
     padding: 45px 0 10px 0;
@@ -368,7 +368,7 @@ section {
   border: 2px solid #F7B733;
 }
 
-#learnMoreBtn a {
+a #learnMoreBtn {
   text-decoration: none;
   color: #F7B733;
 }
