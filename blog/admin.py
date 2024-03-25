@@ -12,7 +12,7 @@ class PostAdmin(SummernoteModelAdmin):
 
     list_display = ('title', 'slug', 'status')
     search_fields = ['title', 'content']
-    list_filter = ('status','created_on',)
+    list_filter = ('status', 'created_on',)
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
 
@@ -26,7 +26,7 @@ class UserProfileAdmin(admin.ModelAdmin):
     information and contact details.
     """
     list_display = ['user', 'profile_picture', 'date_of_birth']
-    search_fields = ['user__username', 'user__email',]
+    search_fields = ['user__username', 'user__email', ]
 
 
 # Register your models here.

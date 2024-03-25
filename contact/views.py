@@ -3,6 +3,8 @@ from django.contrib import messages
 from .forms import ContactForm
 
 # Create your views here.
+
+
 def contact_jetset_journal(request):
     """
     Renders the contact form page.
@@ -12,7 +14,7 @@ def contact_jetset_journal(request):
     **Context**
         ``ContactForm``
             An instance of :form:`contact.ContactForm`.
-    
+
     **Template**
     :template:`contact/contact.html`
     """
@@ -20,7 +22,8 @@ def contact_jetset_journal(request):
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():
             contact_form.save()
-            messages.add_message(request, messages.SUCCESS, "Contact request received! We'll try to respond within 2 working days.")
+            messages.add_message(
+                request, messages.SUCCESS, "Contact request received! We'll try to respond within 2 working days.")  # noqa
 
     contact_form = ContactForm()
 

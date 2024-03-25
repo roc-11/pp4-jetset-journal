@@ -4,7 +4,7 @@ from django import forms
 
 class ContactForm(forms.ModelForm):
     """
-    Form class for users to request a contact request 
+    Form class for users to request a contact request
     """
     class Meta:
         model = Contact

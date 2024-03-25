@@ -26,12 +26,12 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ci4v%4%&n!o6qb+&f(63fhcj(*$qkbm+vw4fw1bdq1e$klmy8&'
+SECRET_KEY = 'django-insecure-ci4v%4%&n!o6qb+&f(63fhcj(*$qkbm+vw4fw1bdq1e$klmy8&'  # noqa
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu108.gitpod.io', 
+ALLOWED_HOSTS = ['8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu108.gitpod.io',
     '8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu110.gitpod.io',
     '8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu109.gitpod.io',
     '.herokuapp.com',
@@ -125,16 +125,16 @@ if 'test' in sys.argv:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',  # noqa
     },
 ]
 

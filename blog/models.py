@@ -25,6 +25,7 @@ LIKE_CHOICES = (
 
 # Create your models here.
 
+
 class Post(models.Model):
     """
     Stores a single blog post entry related to :model:`auth.User`.
@@ -49,7 +50,7 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.title} | written by {self.author}"
-    
+
     def number_of_likes(self):
         return self.likes.count()
 
@@ -83,7 +84,8 @@ class Like(models.Model):
         User, on_delete=models.CASCADE)
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE)
-    value = models.CharField(choices=LIKE_CHOICES, default='Like', max_length=10)
+    value = models.CharField(
+        choices=LIKE_CHOICES, default='Like', max_length=10)
 
     def __str__(self):
         return str(self.post)
@@ -97,9 +99,9 @@ class UserProfile(models.Model):
     fill in their profile information, and associates the profile with the
     currently logged-in user.
     """
-    
+
     user = models.OneToOneField(
-        User, null=True,  on_delete=models.CASCADE, related_name='user_profile')
+        User, null=True,  on_delete=models.CASCADE, related_name='user_profile')  # noqa
     bio = models.TextField(blank=True)
     profile_picture = CloudinaryField('image', default='placeholder')
     date_of_birth = models.DateField(blank=True, null=True)

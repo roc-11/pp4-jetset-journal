@@ -11,7 +11,7 @@ def about_jetset_journal(request):
     **Context**
     ``about``
         The most recent instance of :model:`about.About`.
-    
+
     **Template**
     :template:`about/about.html`
     """
