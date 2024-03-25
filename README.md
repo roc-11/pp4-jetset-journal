@@ -328,7 +328,74 @@ def about_jetset_journal(request):
 
 ![Screenshot of the Users - logout](documentation/features/logout.png)
 
+### Footer
+
+* The footer is simple with a navigation menu and social links. 
+
+![Screenshot of the footer](documentation/features/footer.png)
+
 ### Future Features
+
+#### Destinations
+
+* It was intended that this be included in this project iteration but time did not permit. 
+* There is a destinations field in the Post Model with a list of continents (like a category of blog posts). It is intended that this field be linked to a Destination Model/Table in the DB. This would allow users to visit the Destinations page and to select from a dropdown menu in order to filter blog posts by Destination. E.g. Europe would return all the blog posts about countries in Europe. 
+
+#### My Profile / User Dashboard 
+
+* It was intended that this be included in this project iteration but due to many errors and problems it had to be omitted. 
+* Logged in users will see a My Profile tab in the navigation bar, beside Logout. Here they will be able to create/edit their user profile. This will contain information from the User table combined with the User Profile, such as a bio, date of birth and profile image. 
+* Below is a sample of the code I tried to implement but could not finalise, so it was removed from the project. 
+
+```python
+
+class UserProfile(models.Model):
+    
+    user = models.OneToOneField(
+        User, null=True,  on_delete=models.CASCADE, related_name='user_profile')
+    bio = models.TextField(blank=True)
+    profile_picture = CloudinaryField('image', default='placeholder')
+    date_of_birth = models.DateField(blank=True, null=True)
+    email = models.EmailField(blank=True)
+
+    def __str__(self) -> str:
+        """ Returns a string representation of the associated user. """
+        return str(self.user)
+
+    def get_absolute_url(self):
+        """ Returns the absolute URL for the user's profile page. """
+        return reverse('show_user_profile_page', args=[str(self.pk)])
+
+    def is_complete(self):
+        """
+        Checks if the user's profile is considered complete.
+        """
+        required_fields = [
+            'bio',
+        ]
+
+        for field_name in required_fields:
+            if not getattr(self, field_name):
+                return False
+
+        return True
+
+@receiver(post_save, sender=User)
+ def create_or_update_user_profile(sender, instance, created, **kwargs):
+     """
+     Create or update the user profile
+     """
+    if created:
+         UserProfile.objects.create(user=instance)
+     # Existing users: just save the profile
+     instance.userprofile.save()
+```
+
+#### Forgot Password
+
+* Emails will be extended and utilised in future implementations of Jetset Journal. 
+* Users will need to verify a link when they sign up for an account. 
+* Users will be able to click "forgot password" from the sign in sections. This will email them instructions on how to reset their password, so that they can regain login capabilities on the website. 
 
 ## Tools & Technologies Used
 
