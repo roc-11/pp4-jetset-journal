@@ -745,6 +745,7 @@ I followed a number of tutorials in order to create this Django website. I was a
 * [allauth](https://django-allauth.readthedocs.io/en/latest/)
 * [Django CRUD Functions](https://www.youtube.com/watch?v=EX6Tt-ZW0so)
 * [Testing in Django](https://docs.djangoproject.com/en/4.2/topics/testing/)
+* [Categories Tutorial](https://www.ericsdevblog.com/posts/django-for-beginners-4/)
 
 I spent a great deal of time trying to create a "My Profile" page for the website. This feature would allow users to manage their profile and add/edit their information. Unfortunately due to time constraints, the code for this had to be removed as it did not function perfectly. It has moved to a future implementation. 
 * [How to extend Django User Model](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html)
