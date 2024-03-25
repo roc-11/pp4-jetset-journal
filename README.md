@@ -306,6 +306,28 @@ def about_jetset_journal(request):
 
 ![Screenshot of the messages - messages-comment-deleted](documentation/features/messages-comment-deleted.png)
 
+### Users - login, logout, register
+
+* Users can register for an account by filling out the registration form. 
+* This form is validated on the front end so that users must submit required information. 
+* Passwords rules apply: 
+ - Your password can’t be too similar to your other personal information.
+ - Your password must contain at least 8 characters.
+ - Your password can’t be a commonly used password.
+ - Your password can’t be entirely numeric.
+ - The password must be entered twice and the 2 passwords must match. 
+* Clicking the sign up button will create a new user and the user can then sign in and use the user functionality on the website. 
+
+* Users can login from the login page. They must enter the correct username and password. 
+
+* User can easily log out by clicking the logout button in the navigation bar. 
+
+![Screenshot of the Users - register](documentation/features/signup.png)
+
+![Screenshot of the Users - login](documentation/features/login.png)
+
+![Screenshot of the Users - logout](documentation/features/logout.png)
+
 ### Future Features
 
 ## Tools & Technologies Used
