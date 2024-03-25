@@ -174,31 +174,14 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 ## Lighthouse Audit
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-Use this space to discuss testing the live/deployed site's Lighthouse Audit reports.
-Avoid testing the local version (especially if developing in Gitpod), as this can have knock-on effects of performance.
-
-If you don't have Lighthouse in your Developer Tools,
-it can be added as an [extension](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk).
-
-Don't just test the home page (unless it's a single-page application).
-Make sure to test the Lighthouse Audit results for all of your pages.
-
-**IMPORTANT**: You must provide screenshots of the results, to "prove" that you've actually tested them.
-
-Sample Lighthouse testing documentation:
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
 
-| Page | Mobile | Desktop | Notes |
-| --- | --- | --- | --- |
-| Home | ![screenshot](documentation/lighthouse-home-mobile.png) | ![screenshot](documentation/lighthouse-home-desktop.png) | Some minor warnings |
-| About | ![screenshot](documentation/lighthouse-about-mobile.png) | ![screenshot](documentation/lighthouse-about-desktop.png) | Some minor warnings |
-| Gallery | ![screenshot](documentation/lighthouse-gallery-mobile.png) | ![screenshot](documentation/lighthouse-gallery-desktop.png) | Slow response time due to large images |
-| x | x | x | repeat for any other tested pages/sizes |
+| Page | Desktop | Notes |
+| --- | --- | --- |
+| Home | ![screenshot](documentation/testing/lighthouse-home.png) | Slow response time due to large images |
+| About | ![screenshot](documentation/testing/lighthouse-about.png) | Some minor warnings |
+| Contact | ![screenshot](documentation/testing/lighthouse-contact.png) | Some minor warnings |
+| Blog Details | ![screenshot](documentation/testing/lighthouse-blog-details.png) | Medium response time due to large image |
 
 ## Defensive Programming
 
@@ -326,28 +309,23 @@ The aforementioned tests are just an example of a few different project scenario
 
 ## User Story Testing
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-Testing user stories is actually quite simple, once you've already got the stories defined on your README.
-
-Most of your project's **features** should already align with the **user stories**,
-so this should as simple as creating a table with the user story, matching with the re-used screenshot
-from the respective feature.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 | User Story | Screenshot |
 | --- | --- |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature01.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature02.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature03.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature04.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature05.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature06.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/feature07.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/feature08.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/feature09.png) |
-| repeat for all remaining user stories | x |
+| As a new site user, I would like to view an intuitive website with straightforward navigation that is fully responsive. | ![screenshot](documentation/navigation_logged_out.png) |
+| As a new site user, I would like to create an account so that I can comment on and like blog posts. | ![screenshot](documentation/signup.png) |
+| As a new site user, I would like to easily edit and delete any comments that I make. | ![screenshot](documentation/edit-comment.png) |
+| As a new site user, I would like to easily contact the website administrators with questions. | ![screenshot](documentation/contact-page.png) |
+| As a new site user, I would like to easily understand the main purpose of the site. | ![screenshot](documentation/about_page.png) |
+| As a new user, I want attractive and relevant visuals and colour schemes that work with the content. | n/a |
+| As a returning site user, I would like to view an intuitive website with straightforward navigation that is fully responsive. | ![screenshot](documentation/navigation_logged_in.png) |
+| As a returning site user, I would like to easily log into my account so that I can comment on and like blog posts. | ![screenshot](documentation/login.png) |
+| As a returning site user, I would like to easily edit and delete any comments that I make. | ![screenshot](documentation/edit-comment.png) |
+| As a site administrator, I would like to have a recognizable branded admininstator area to manage users, blog posts, blogs comments and blog likes. | ![screenshot](documentation/admin-area.png) |
+| As a site administrator, I would like to easily create blog postings in draft or published form, for display on Jetset Journal. | ![screenshot](documentation/admin-create-post.png) |
+| As a site administrator, I would like to easily edit the about text and profile picture using a user-friendly UI. | ![screenshot](documentation/about_table_ui.png) |
+| As a site administrator, I would like to have control over approving user comments before they appear on the front-end. | ![screenshot](documentation/edit-comment-not-approved.png) |
+| As a site administrator, I would like to manage user contact requests and mark them as read. | ![screenshot](documentation/contact-table.png) |
+| As a site administrator, I would like to have a simple UI that will encourage users to return and engage with the blog. | n/a |
 
 ## Automated Testing
 
