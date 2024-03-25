@@ -8,32 +8,11 @@ Return back to the [README.md](README.md) file.
 
 I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-- If you are copying/pasting your HTML code, use this link: https://validator.w3.org/#validate_by_input
-- (*recommended*) If you are using the live deployed site pages, use this link: https://validator.w3.org/#validate_by_uri
-
-It's recommended to validate the live pages (each of them) using the deployed URL.
-This will give you a custom URL as well, which you can use on your testing documentation.
-It makes it easier to return back to a page to validate it again in the future.
-The URL will look something like this:
-
-- https://validator.w3.org/nu/?doc=https%3A%2F%2Froc-11.github.io%2Fpp4-jetset-journal%2Findex.html
-
-Sample HTML code validation documentation (tables are extremely helpful!):
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 | Page | W3C URL | Screenshot | Notes |
 | --- | --- | --- | --- |
-| Home | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Froc-11.github.io%2Fpp4-jetset-journal%2Findex.html) | ![screenshot](documentation/html-validation-home.png) | Section lacks header h2-h6 warning |
-| Contact | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Froc-11.github.io%2Fpp4-jetset-journal%2Fcontact.html) | ![screenshot](documentation/html-validation-contact.png) | obsolete iframe warnings |
-| Quiz | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Froc-11.github.io%2Fpp4-jetset-journal%2Fquiz.html) | ![screenshot](documentation/html-validation-quiz.png) | Pass: No Errors |
-| Add Blog | n/a | ![screenshot](documentation/html-validation-add-blog.png) | Duplicate IDs found, and fixed |
-| Checkout | n/a | ![screenshot](documentation/html-validation-checkout.png) | Pass: No Errors |
-| x | x | x | repeat for all remaining HTML files |
-
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
+| Home | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp4-jetset-journal-4cbea9e2528c.herokuapp.com%2F) | ![screenshot](documentation/testing/html-validator-home) | Element p not allowed as child of element span in this context, but displays fine. A document must not include more than one visible main element. |
+| Contact | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp4-jetset-journal-4cbea9e2528c.herokuapp.com%2Fcontact%2F) | ![screenshot](documentation/testing/html-validator-contact.png) | Element p not allowed as child of element span in this context, but displays fine.|
+| About | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp4-jetset-journal-4cbea9e2528c.herokuapp.com%2Fabout%2F) | ![screenshot](documentation/testing/html-validator-about.png) | Element p not allowed as child of element span in this context. (Suppressing further errors from this subtree.) Bad value 75% for attribute width on element img. |
 
 **IMPORTANT**: Python/Jinja syntax in HTML
 

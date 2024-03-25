@@ -368,7 +368,7 @@ section {
   border: 2px solid #F7B733;
 }
 
-#learnMoreBtn a {
+a #learnMoreBtn {
   text-decoration: none;
   color: #F7B733;
 }
