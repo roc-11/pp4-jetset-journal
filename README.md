@@ -290,7 +290,7 @@ def about_jetset_journal(request):
 
 ![Screenshot of the contact DB](documentation/features/contact-table.png)
 
-### Onscreen notifications/messages
+### Onscreen notifications/messages (Validation)
 
 * User messages appear when data is submitted to the DB. 
 * Messages appear in a green box under the navigation bar. 
@@ -342,7 +342,10 @@ def about_jetset_journal(request):
 
 ![Screenshot of the admin area](documentation/features/admin-area.png)
 
-### Future Features
+### Unresolved bugs
+There are no unresolved bugs.
+
+### Future Features/Improvements
 
 #### Destinations
 

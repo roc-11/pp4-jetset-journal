@@ -26,6 +26,9 @@ LIKE_CHOICES = (
 # Create your models here.
 
 class Post(models.Model):
+    """
+    Stores a single blog post entry related to :model:`auth.User`.
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
@@ -52,6 +55,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Stores a single comment entry related to :model:`auth.User`
+    and :model:`blog.Post`.
+    """
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(
@@ -68,6 +75,10 @@ class Comment(models.Model):
 
 
 class Like(models.Model):
+    """
+    Stores a single like entry related to :model:`auth.User`
+    and :model:`blog.Post`.
+    """
     user = models.ForeignKey(
         User, on_delete=models.CASCADE)
     post = models.ForeignKey(
@@ -79,6 +90,13 @@ class Like(models.Model):
 
 
 class UserProfile(models.Model):
+
+    """
+    This class creates a user profile page.
+    It uses the UserProfile model to allow users to
+    fill in their profile information, and associates the profile with the
+    currently logged-in user.
+    """
     
     user = models.OneToOneField(
         User, null=True,  on_delete=models.CASCADE, related_name='user_profile')

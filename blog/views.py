@@ -9,6 +9,20 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here - Class Based View, PostList
 class PostList(generic.ListView):
+    """
+    Returns all published posts in :model:`blog.Post`
+    and displays them in a page of six posts. 
+    **Context**
+
+    ``queryset``
+        All published instances of :model:`blog.Post`
+    ``paginate_by``
+        Number of posts per page.
+        
+    **Template:**
+
+    :template:`blog/index.html`
+    """
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 6
@@ -22,6 +36,12 @@ def post_detail(request, slug):
 
     ``post``
         An instance of :model:`blog.Post`.
+    ``comments``
+        All approved comments related to the post.
+    ``comment_count``
+        A count of approved comments related to the post.
+    ``comment_form``
+        An instance of :form:`blog.CommentForm`
 
     **Template:**
 
@@ -60,7 +80,16 @@ def post_detail(request, slug):
 
 def comment_edit(request, slug, comment_id):
     """
-    view to edit comments
+    Display an individual comment for edit.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`.
+    ``comment``
+        A single comment related to the post.
+    ``comment_form``
+        An instance of :form:`blog.CommentForm`
     """
     if request.method == "POST":
 
@@ -83,7 +112,14 @@ def comment_edit(request, slug, comment_id):
 
 def comment_delete(request, slug, comment_id):
     """
-    view to delete comment
+    Delete an individual comment.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`.
+    ``comment``
+        A single comment related to the post.
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -99,6 +135,16 @@ def comment_delete(request, slug, comment_id):
 
 
 class PostLike(View):
+    """
+    Display an individual like for post.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`.
+    ``like``
+        A single like related to the post.
+    """
     
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
@@ -109,15 +155,3 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-
-# @login_required
-# def profile(request, username):
-
-#     user = get_object_or_404(User, username=username)
-#     profile = get_object_or_404(UserProfile, user=user)
-
-#     context = {
-#         'profile': profile
-#     }
-
-#     return render(request, 'blog/my_profile.html', {'profile': profile, 'user': user})

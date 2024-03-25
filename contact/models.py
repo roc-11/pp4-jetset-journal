@@ -4,7 +4,7 @@ from django.db import models
 
 class Contact(models.Model):
     """
-    Stores a single collaboration request message
+    Stores a single contact request message
     """
     name = models.CharField(max_length=200)
     email = models.EmailField()
