@@ -22,7 +22,6 @@ class UserProfileAdmin(admin.ModelAdmin):
     information, social media links, contact details, and interests.
     """
     list_display = ['user', 'profile_picture', 'date_of_birth']
-    # list_filter = ['location', 'subscribed_categories']
     search_fields = ['user__username', 'user__email',]
 
 

@@ -3,9 +3,7 @@
 
 {% block content %}
 
-<!-- HEADER -->
-<!-- https://bootstrapbrain.com/component/bootstrap-5-hero-image-section-example/#preview -->
-<!-- Hero 1 - Bootstrap Brain Component -->
+<!-- HEADER - hero section - CreditL https://bootstrapbrain.com/component/bootstrap-5-hero-image-section-example/#preview -->
 <div id="heroDiv">
     <section class="bsb-hero-1 px-3 bsb-overlay bsb-hover-pull" style="background-image: url('static/images/sample-hero-image.jpg');">
         <div class="container">
@@ -23,7 +21,6 @@
 </div>
 
 <!-- index.html content starts here -->
-<!-- https://getbootstrap.com/docs/5.3/examples/blog/# -->
 <div class="mt-5 mb-5">
 <h2 class="text-center text-uppercase mt-3">
     Latest Posts
@@ -38,7 +35,6 @@
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                     <strong class="d-inline-block mb-2 text-primary-emphasis">Destination: <span class="text-uppercase">{{ post.destination }}</span></strong>
-                    <!-- <h3 class="mb-0">Featured Post</h3> -->
                     <a href="{% url 'post_detail' post.slug %}" class="post-link">
                         <h3 class="card-title mb-3">{{ post.title }}</h3>
                         <p class="card-text  mb-auto">{{ post.excerpt }}</p>

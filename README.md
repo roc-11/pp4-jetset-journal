@@ -334,6 +334,14 @@ def about_jetset_journal(request):
 
 ![Screenshot of the footer](documentation/features/footer.png)
 
+### Admin Area
+
+* The admin area features branding and colour scheme in line with the rest of the site. 
+
+![Screenshot of the admin login](documentation/features/admin-login.png)
+
+![Screenshot of the admin area](documentation/features/admin-area.png)
+
 ### Future Features
 
 #### Destinations
@@ -348,6 +356,8 @@ def about_jetset_journal(request):
 * Below is a sample of the code I tried to implement but could not finalise, so it was removed from the project. 
 
 ```python
+
+Models.py
 
 class UserProfile(models.Model):
     
@@ -389,6 +399,23 @@ class UserProfile(models.Model):
          UserProfile.objects.create(user=instance)
      # Existing users: just save the profile
      instance.userprofile.save()
+
+Views.py 
+@login_required
+def profile(request, username):
+
+     user = get_object_or_404(User, username=username)
+     profile = get_object_or_404(UserProfile, user=user)
+
+     context = {
+        'profile': profile
+    }
+
+    return render(request, 'blog/my_profile.html', {'profile': profile, 'user': user})
+
+urls.py 
+
+path('profile/<username>/', views.profile, name='profile'),
 ```
 
 #### Forgot Password
@@ -710,6 +737,8 @@ You can fork this repository by using the following steps:
 
 I followed a number of tutorials in order to create this Django website. I was also inspired and helped by the "I Think Therefore I Blog" Code institute walkthrough project.
 * [How to create a like button with counter in django by Pyplane](https://www.youtube.com/watch?v=xqFM6ykQEwo)
+* [Bootstrap Hero Section for Homepage (Hero 1 - Bootstrap Brain Component)](https://bootstrapbrain.com/component/bootstrap-5-hero-image-section-example/#preview)
+* [Bootstrap Blog Posts Templates](https://getbootstrap.com/docs/5.3/examples/blog/#)
 * [allauth](https://django-allauth.readthedocs.io/en/latest/)
 * [Django CRUD Functions](https://www.youtube.com/watch?v=EX6Tt-ZW0so)
 * [Testing in Django](https://docs.djangoproject.com/en/4.2/topics/testing/)
