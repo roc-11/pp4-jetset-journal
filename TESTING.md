@@ -14,61 +14,14 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | Contact | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp4-jetset-journal-4cbea9e2528c.herokuapp.com%2Fcontact%2F) | ![screenshot](documentation/testing/html-validator-contact.png) | Element p not allowed as child of element span in this context, but displays fine.|
 | About | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp4-jetset-journal-4cbea9e2528c.herokuapp.com%2Fabout%2F) | ![screenshot](documentation/testing/html-validator-about.png) | Element p not allowed as child of element span in this context. (Suppressing further errors from this subtree.) Bad value 75% for attribute width on element img. |
 
-**IMPORTANT**: Python/Jinja syntax in HTML
-
-Python projects that use Jinja syntax, such as `{% for loops %}`, `{% url 'home' %}`, and `{{ variable|filter }}`
-will not validate properly if you're copying/pasting into the HTML validator.
-
-In order to properly validate these types of files, it's recommended to
-[validate by uri](https://validator.w3.org/#validate_by_uri) from the deployed Heroku pages.
-
-Unfortunately, pages that require a user to be logged-in and authenticated (CRUD functionality),
-will not work using this method, due to the fact that the HTML Validator (W3C) doesn't have
-access to login to your pages.
-In order to properly validate HTML pages with Jinja syntax for authenticated pages, follow these steps:
-
-- Navigate to the deployed pages which require authentication
-- Right-click anywhere on the page, and select **View Page Source** (usually `CTRL+U` or `⌘+U` on Mac).
-- This will display the entire "compiled" code, without any Jinja syntax.
-- Copy everything, and use the [validate by input](https://validator.w3.org/#validate_by_input) method.
-- Repeat this process for every page that requires a user to be logged-in/authenticated.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 ### CSS
 
 I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-- If you are copying/pasting your HTML code, use this link: https://jigsaw.w3.org/css-validator/#validate_by_input
-- (*recommended*) If you are using the live deployed site, use this link: https://jigsaw.w3.org/css-validator/#validate_by_uri
-
-It's recommended to validate the live site if you only have a single CSS file using the deployed URL.
-This will give you a custom URL as well, which you can use on your testing documentation.
-It makes it easier to return back to the page to validate it again in the future.
-The URL will look something like this:
-
-- https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Froc-11.github.io%2Fpp4-jetset-journal
-
-If you have multiple CSS files, then individual [validation by input](https://jigsaw.w3.org/css-validator/#validate_by_input)
-is recommended for the additional CSS files.
-
-**IMPORTANT**: Third-Party tools
-
-If you're using extras like Bootstrap, Materialize, Font Awesome, then sometimes the validator
-will attempt to also validate this code, even if it's not part of your own actual code.
-You are not required to validate the external libraries or frameworks!
-
-Sample CSS code validation documentation (tables are extremely helpful!):
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 | File | Jigsaw URL | Screenshot | Notes |
 | --- | --- | --- | --- |
-| style.css | [Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Froc-11.github.io%2Fpp4-jetset-journal) | ![screenshot](documentation/css-validation-style.png) | Pass: No Errors |
-| checkout.css | n/a | ![screenshot](documentation/css-validation-checkout.png) | Pass: No Errors |
-| x | x | x | repeat for all remaining CSS files |
+| style.css | n/a | ![screenshot](documentation/testing/css-validator-style-css.png) | Pass: No Errors |
+| admin.css | n/a | ![screenshot](documentation/testing/css-validator-admin-css.png) | Pass: No Errors |
 
 ### JavaScript
 
