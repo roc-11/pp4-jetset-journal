@@ -189,16 +189,6 @@ return super().execute(query)
 sqlite3.OperationalError: near "None": syntax error
 ```
 
-**Fixed Bugs**
-
-All previously closed/fixed bugs can be tracked [here](https://github.com/roc-11/pp4-jetset-journal/issues?q=is%3Aissue+is%3Aclosed).
-
-| Bug | Status |
-| --- | --- |
-| [JS Uncaught ReferenceError: `foobar` is undefined/not defined](https://github.com/roc-11/pp4-jetset-journal/issues/1) | Closed |
-| [Python `'ModuleNotFoundError'` when trying to import module from imported package](https://github.com/roc-11/pp4-jetset-journal/issues/2) | Closed |
-| [Django `TemplateDoesNotExist` at /appname/path appname/template_name.html](https://github.com/roc-11/pp4-jetset-journal/issues/3) | Closed |
-
 ## Unfixed Bugs
 
 - Users are able to enter numbers as a username on registration. It results in an error but the user is still added to the User Table. I will need to fix this in future iterations of the Jetset Journal Project.
