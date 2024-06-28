@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="bg-light section-header">
+    <div class="container">
+      <div class="section-title">
+        <h1 class="text-uppercase"><img class="jj-icon" alt="Jetset Journal Icon" src="{% static 'images/jj_logo.png' %}">My Favourite Posts</h1>
+      </div>
+    </div>
+  </section>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+       <!-- User Wishlist -->
+       <div class="col-12">
+        <h3 class="text-muted my-2">View & Edit Favourites for {{profile.user.username}}</h3>
+        <h4 class="text-center text-uppercase my-3">Favourite Posts</h4>
+        {% if wishlist %}
+            {% for post in wishlist %}
+            <!-- Card element for each item in wishlist-->
+                <div class="row">
+                    <div class="offset-md-2 offset-lg-3 col-md-6">
+                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <div class="col p-4 d-flex flex-column position-static">
+                                <strong class="d-inline-block mb-2 text-primary-emphasis">Destination: <span class="text-uppercase">{{ post.destination }}</span></strong>
+                                <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                                    <h3 class="card-title mb-3">{{ post.title }}</h3>
+                                </a>
+                                <div class="image-flash author mb-1 mt-2">Author: {{ post.author }}</div>
+                                <hr>
+                                <div class="mb-1 text-body-secondary">{{ post.created_on}}</div>
+                            </div>
+                            <div class="col-auto d-none d-lg-block blog-images">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <img class="blog-placeholder-img" style="object-fit: cover;" width="200" height="250" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                                {% else %}
+                                <img class="blog-placeholder-img" style="object-fit: cover;" width="200" height="250" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+                                {% endif %}
+                            </div>
+                            <div class="mt-2 mb-1">
+                                <a class="btn btn-wish btn-md" href="{% url 'user_wishlist' post.slug %}" role="button" aria-disabled="false">Remove from Wishlist</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="btn btn-black rounded-0 text-uppercase mt-2 mb-3"><i class="fas fa-chevron-left"></i> Back to Profile</a>
+            {% endif %}
+        {% else %}
+        <div class="wishlist-item mt-4 mb-4 pb-2">
+            <p>Your wishlist is empty.</p>
+            <a href="{% url 'home' %}" class="btn btn-black rounded-0 text-uppercase mt-2 mb-3">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Back to Blog</span>
+            </a>
+        </div>
+        {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

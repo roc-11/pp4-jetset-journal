@@ -43,6 +43,27 @@
             </div>
         </div>
     </div>
+    <!-- Add to Favourites/Wishlist -->
+    <div class="row mb-4">
+      {% if user.is_authenticated %}
+          <form class="d-inline like-form" action="{% url 'user_wishlist' post.slug %}" method="POST" data-product-id="{{ post.slug }}">
+              {% csrf_token %}
+                  {% if request.user in post.users_wishlist.all %}
+                  <button type="submit" name="like" value="{{ blog_wish.post.slug }}" class="btn btn-like-wish mt-2" data-like-action="unlike">
+                      <i class="fas fa-heart fa-sm" style="color: #cc2b5e;"></i><span class="ml-1 like-text"> Remove from Favourites</span>
+                  </button>
+                  {% else %}
+                  <button type="submit" name="like" value="{{ blog_wish.post.slug }}" class="btn btn-like-wish mt-2" data-like-action="like">
+                      <i class="far fa-heart fa-sm" style="color: #000;"></i><span class="ml-1 like-text"> Add to Favourites</span>
+                  </button>
+                  {% endif %}
+          </form>
+      {% else %}
+          <a href="{% url 'account_login' %}" class="btn btn-like-wish mt-2">
+              <i class="far fa-heart fa-sm" style="color: #000;"></i><span class="ml-1 like-text">Add to Favourites</span>
+          </a>
+      {% endif %}
+    </div>
      <!-- Displaying count of likes -->
   <div class="row">
     <div class="col-1">

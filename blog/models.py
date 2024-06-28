@@ -44,6 +44,8 @@ class Post(models.Model):
         choices=DESTINATIONS, default='europe', max_length=50)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
+    users_wishlist = models.ManyToManyField(
+        User, related_name="user_wishlist", blank=True)
 
     class Meta:
         ordering = ["-created_on"]
