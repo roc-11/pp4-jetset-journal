@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu108.gitpod.io',
                     '8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu110.gitpod.io',
                     '8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu109.gitpod.io',
                     '8000-roc11-pp4jetsetjournal-pjsbtglkq9d.ws.codeinstitute-ide.net',
+                    'pp4-jetset-journal-4cbea9e2528c.herokuapp.com',
                     '.herokuapp.com'
                     'localhost',
 ]
