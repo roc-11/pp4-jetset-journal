@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, Like, User
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -156,3 +156,33 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+@login_required
+def add_blog_post(request):
+    """
+    Add a blog post to the blog.
+    Accessible only to superusers (administrators).
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only blog owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        post_form = PostForm(request.POST, request.FILES)
+        if post_form.is_valid():
+            post = post_form.save()
+            messages.success(request, 'Successfully added blog post!')
+            return redirect(reverse('product_detail', args=[post.slug]))
+        else:
+            messages.error(
+                request, 'Failed to add blog post. Please ensure the form is valid.')
+    else:
+        post_form = PostForm()
+
+    template = 'blog/add_blog_post.html'
+    context = {
+        'form': post_form
+    }
+
+    return render(request, template, context)
