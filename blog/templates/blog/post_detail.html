@@ -94,6 +94,19 @@
       <hr>
     </div>
   </div>
+  <!-- Blog Admin - edit/delete a post -->
+  <div class="row">
+    <div class="col-md-8 mb-4 mt-3">
+      <h3>Admin Tools:</h3>
+      {% if request.user.is_superuser %}
+        <a href="{% url 'edit_blog_post' post.slug %}" class="btn-info btn-lg text-decoration-none mb-4">Edit Post</a>
+        <a href="{% url 'delete_blog_post' post.slug %}" class="btn-danger btn-delete-1 btn-lg text-decoration-none">Delete Post</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-12">
+    <hr>
+  </div>
   <!-- Displaying Comments -->
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 ">
@@ -150,7 +163,7 @@
   </div>
 </div>
 
-<!-- Delete confirmation modal -->
+<!-- Delete confirmation modal - Comment -->
 <div class="modal fade" id="deleteModal" tabindex="-1"
   aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -169,6 +182,31 @@
         <button type="button" class="btn btn-secondary"
           data-bs-dismiss="modal">Close</button>
         <a id="deleteConfirm" href="#" class="btn
+          btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete confirmation modal - Blog Post (Admin) -->
+<div class="modal fade" id="deleteModalAdmin" tabindex="-1"
+  aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"
+          id="deleteModalLabel">Delete blog post?</h5>
+        <button type="button" class="btn-close"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete your blog post?
+        This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+          data-bs-dismiss="modal">Close</button>
+        <a id="deleteConfirmAdmin" href="#" class="btn
           btn-danger">Delete</a>
       </div>
     </div>

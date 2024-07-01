@@ -7,7 +7,7 @@
 <section class="bg-light section-header">
     <div class="container">
       <div class="section-title">
-        <h1 class="text-uppercase"><img class="jj-icon" alt="Jetset Journal Icon" src="{% static 'images/jj_logo.png' %}">Add a Blog Post</h1>
+        <h1 class="text-uppercase"><img class="jj-icon" alt="Jetset Journal Icon" src="{% static 'images/jj_logo.png' %}">Edit a Blog Post</h1>
       </div>
     </div>
 </section>
@@ -16,8 +16,8 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <!-- Add A Blog Post Form -->
-                <form method="POST" action="{% url 'add_blog_post' %}" class="form mb-2" enctype="multipart/form-data">
+                <!-- Edit A Blog Post Form -->
+                <form method="POST" action="{% url 'edit_blog_post' post.slug %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name != 'image' %}
@@ -28,7 +28,7 @@
                     {% endfor %}
                     <div class="text-right">
                         <a href="{% url 'home' %}" class="btn btn-cancel1 btn-lg">Cancel</a>
-                        <button class="btn btn-signup btn-lg" type="submit">Add Blog Post</button>
+                        <button class="btn btn-signup btn-lg" type="submit">Update Blog Post</button>
                     </div>
                 </form>
             </div>

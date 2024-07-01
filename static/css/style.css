@@ -194,6 +194,16 @@ h3 {
     color: #318b7e;
 }
 
+.btn-cancel1 {
+    background-color: #fc4a1a;
+    color: #fff;
+}
+
+.btn-cancel1:hover {
+  background-color: #fff;
+  color: #fc4a1a;
+}
+
 .link {
     color: #318b7e;
     text-decoration: none;

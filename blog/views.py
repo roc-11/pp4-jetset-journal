@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -173,7 +173,7 @@ def add_blog_post(request):
         if post_form.is_valid():
             post = post_form.save()
             messages.success(request, 'Successfully added blog post!')
-            return redirect(reverse('product_detail', args=[post.slug]))
+            return redirect(reverse('post_detail', args=[post.slug]))
         else:
             messages.error(
                 request, 'Failed to add blog post. Please ensure the form is valid.')
@@ -186,3 +186,54 @@ def add_blog_post(request):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def edit_blog_post(request, slug):
+    """
+    Edit a blog post in the blog
+    Accessible only to superusers (administrators).
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only blog owners can do that.')
+        return redirect(reverse('home'))
+
+    post = get_object_or_404(
+        Post, slug=slug)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated blog post!')
+            return redirect(reverse('post_detail', args=[slug]))
+        else:
+            messages.error(
+                request, 'Failed to update blog post. Please ensure the form is valid.')
+    else:
+        form = PostForm(instance=post)
+        messages.info(request, f'You are editing {post.title}')
+
+    template = 'blog/edit_blog_post.html'
+    context = {
+        'form': form,
+        'post': post,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_blog_post(request, slug):
+    """
+    Delete a blog post in the blog
+    Accessible only to superusers (administrators).
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only blog owners can do that.')
+        return redirect(reverse('home'))
+
+    post = get_object_or_404(Post, slug=slug)
+    post.delete()
+    messages.success(request, 'Blog post deleted!')
+
+    return redirect(reverse('home'))
