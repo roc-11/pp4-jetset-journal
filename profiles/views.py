@@ -6,6 +6,7 @@ from django.shortcuts import (
 
 from .models import UserProfile
 from blog.models import Post
+from .forms import UserProfileForm
 
 
 @login_required
@@ -15,9 +16,21 @@ def profile(request):
     """
     profile = get_object_or_404(UserProfile, user=request.user)
 
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully')
+        else:
+            messages.error(
+                request, 'Update failed. Please ensure the form is valid.')
+    else:
+        form = UserProfileForm(instance=profile)
+
     template = 'profiles/profile.html'
     context = {
         'profile': profile,
+         'form': form,
     }
 
     return render(request, template, context)
