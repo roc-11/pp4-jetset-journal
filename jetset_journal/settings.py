@@ -74,10 +74,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/success'  # redirected to homepage
-
-# LOGIN_REDIRECT_URL = '/'
-# LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'  # redirected to homepage
 
 # Set Bootstrap5 as allowed & default template pack
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -162,9 +159,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',  # noqa
     },
 ]
-
-# Not using Allauth email verification
-# ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 
 # Internationalization
