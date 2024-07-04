@@ -8,6 +8,14 @@ body {
     font-family: 'Krub', 'Lato', sans-serif;
 }
 
+.hero-div {
+  background: url('/static/images/jj-hero-image-new.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: calc(100vh - 164px);
+  color: #555;
+  font-family: 'Lato';
+}
+
 /* headings and logo */
 h1,
 h2,
@@ -184,6 +192,16 @@ h3 {
 .btn-signup:active {
     background-color: #fff;
     color: #318b7e;
+}
+
+.btn-cancel1 {
+    background-color: #fc4a1a;
+    color: #fff;
+}
+
+.btn-cancel1:hover {
+  background-color: #fff;
+  color: #fc4a1a;
 }
 
 .link {
@@ -371,4 +389,55 @@ section {
 a #learnMoreBtn {
   text-decoration: none;
   color: #F7B733;
+}
+
+/*-------------------------------------------------------------
+# My Profile 
+-------------------------------------------------------------*/
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.profile-image img{
+  width: 100%;
+}
+
+.admin-button {
+  text-decoration: none;
+  background-color: #F7B733;
+}
+
+.admin-button:hover {
+  text-decoration: none;
+  background-color: #b07e1a;
+  cursor: pointer;
+}
+
+.btn-like-wish {
+  border: 2px solid #9e2020 !important;
+}
+
+.btn-like-wish:hover,
+.btn-like-wish:active,
+.btn-like-wish:focus {
+  box-shadow: 0 8px 16px 0 rgba(158,32,32,0.2), 0 6px 20px 0 rgba(158,32,32,0.19);
+}
+
+.btn-wish {
+  background: #9e2020;
+  color: white;
+  border: 2px solid white !important;
+}
+
+.btn-wish:hover,
+.btn-wish:active,
+.btn-wish:focus {
+  background: white;
+  color: #9e2020 !important;
+  border: 2px solid #9e2020 !important;
 }
