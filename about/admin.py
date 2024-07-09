@@ -7,4 +7,3 @@ from django_summernote.admin import SummernoteModelAdmin
 class AboutAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('content',)
-    

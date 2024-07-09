@@ -39,7 +39,7 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 | File | Screenshot | Notes |
 | --- | --- | --- |
 | manage.py | ![screenshot](documentation/testing/manage_pyp.png) | Pass: No Errors |
-| settings.py | ![screenshot](documentation/testing/settings_py.png) | E128 continuation line under-indented for visual indent. E124 closing bracket does not match visual indentation. |
+| settings.py | ![screenshot](documentation/testing/settings_py_new.png) | Pass: No Errors |
 | About admin.py | ![screenshot](documentation/testing/about_admin_py.png) |  Pass: No Errors |
 | About models.py | ![screenshot](documentation/testing/about_models_py.png) | Pass: No Errors |
 | About views.py | ![screenshot](documentation/testing/about_views_py.png) | Pass: No Errors |
@@ -48,10 +48,15 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 | Blog urls.py | ![screenshot](documentation/testing/blog_urls_py.png) | Pass: No Errors |
 | Blog views.py | ![screenshot](documentation/testing/blog_views_py.png) | Pass: No Errors |
 | Contact admin.py | ![screenshot](documentation/testing/contact_admin_py.png) | Pass: No Errors |
- Contact forms.py | ![screenshot](documentation/testing/contact_forms_py.png) | Pass: No Errors |
+| Contact forms.py | ![screenshot](documentation/testing/contact_forms_py.png) | Pass: No Errors |
 | Contact models.py | ![screenshot](documentation/testing/contact_models_py.png) | Pass: No Errors |
 | Contact urls.py | ![screenshot](documentation/testing/contact_urls_py.png) | Pass: No Errors|
-| Contact views.py | ![screenshot](documentation/testing/contact_views_py.png) | E501 line too long (115 > 79 characters).|
+| Contact views.py | ![screenshot](documentation/testing/contact_views_py.png) | E501 line too long (115 > 79 characters). noqa |
+| Profiles admin.py | ![screenshot](documentation/testing/profiles_admin_py.png) | Pass: No Errors |
+| Profiles forms.py | ![screenshot](documentation/testing/profiles_forms_py.png) | Pass: No Errors |
+| Profiles models.py | ![screenshot](documentation/testing/profiles_models_py.png) | Pass: No Errors |
+| Profiles urls.py | ![screenshot](documentation/testing/profiles_urls_py.png) | Pass: No Errors|
+| Profiles views.py | ![screenshot](documentation/testing/profiles_views_py.png) | E501 line too long (115 > 79 characters). noqa |
 
 ## Browser Compatibility
 

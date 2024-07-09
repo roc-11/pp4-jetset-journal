@@ -3,6 +3,8 @@
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
 {% url 'contact' as contact_url %}
+{% url 'wishlist' as wishlist_url %}
+{% url 'profile' as profile_url %}
 
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
@@ -61,6 +63,9 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a class="nav-link {% if request.path == wishlist_url %}active{%endif%}" aria-current="page" href="{% url 'wishlist' %}">Favourite Posts</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {% if request.path == profile_url %}active{%endif%}" aria-current="page" href="{% url 'profile' %}">
                             <i class="fas fa-user-circle"></i> My Profile
                         </a>
@@ -73,11 +78,6 @@
                             <i class="fas fa-user"></i> Logout</a>
                     </li>
                     {% else %}
-                    <!--
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'account_signup' %}">Register</a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">
                             <i class="fas fa-user"></i> Login / Register</a>
