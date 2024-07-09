@@ -24,6 +24,9 @@ def contact_jetset_journal(request):
             contact_form.save()
             messages.add_message(
                 request, messages.SUCCESS, "Contact request received! We'll try to respond within 2 working days.")  # noqa
+        else:
+            messages.add_message(
+                request, messages.ERROR, "Invalid form. Failed to submit.")
 
     contact_form = ContactForm()
 
