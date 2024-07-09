@@ -100,7 +100,8 @@
     <div class="col-md-8 mb-4 mt-3">
       <h3>Admin Tools:</h3>
         <a href="{% url 'edit_blog_post' post.slug %}" class="btn-info btn-lg text-decoration-none mb-4">Edit Post</a>
-        <a href="{% url 'delete_blog_post' post.slug %}" class="btn-danger btn-delete-1 btn-lg text-decoration-none">Delete Post</a>
+        <a href="{% url 'delete_blog_post' post.slug %}" 
+        class="btn-danger btn-delete-1 btn-lg text-decoration-none" id="deletePostBtn">Delete Post</a>
     </div>
   </div>
   <div class="col-12">
@@ -180,7 +181,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary"
-          data-bs-dismiss="modal">Close</button>
+          data-dismiss="modal">Close</button>
         <a id="deleteConfirm" href="#" class="btn
           btn-danger">Delete</a>
       </div>
@@ -218,4 +219,11 @@
 
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
+
+<script>
+  ('#deletePostBtn').addEventListener("click", (e) => {
+    e.stopImmediatePropagation();
+    e.preventDefault();
+  });
+</script>
 {% endblock %}
