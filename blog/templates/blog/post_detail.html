@@ -191,12 +191,12 @@
 
 <!-- Delete confirmation modal - Blog Post (Admin) -->
 <div class="modal fade" id="deleteModalAdmin" tabindex="-1"
-  aria-labelledby="deleteModalLabel" aria-hidden="true">
+  aria-labelledby="deleteModalLabelBlog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title"
-          id="deleteModalLabel">Delete blog post?</h5>
+          id="deleteModalLabelBlog">Delete blog post?</h5>
         <button type="button" class="btn-close"
           data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -221,7 +221,7 @@
 <script src="{% static 'js/comments.js' %}"></script>
 
 <script>
-  ('#deletePostBtn').addEventListener("click", (e) => {
+  $('#deletePostBtn').addEventListener("click", (e) => {
     e.stopImmediatePropagation();
     e.preventDefault();
   });
