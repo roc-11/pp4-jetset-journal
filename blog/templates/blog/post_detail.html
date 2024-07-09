@@ -101,7 +101,8 @@
       <h3>Admin Tools:</h3>
         <a href="{% url 'edit_blog_post' post.slug %}" class="btn-info btn-lg text-decoration-none mb-4">Edit Post</a>
         <a href="{% url 'delete_blog_post' post.slug %}" 
-        class="btn-danger btn-delete-1 btn-lg text-decoration-none" id="deletePostBtn">Delete Post</a>
+        class="btn-danger btn-delete-1 btn-lg text-decoration-none" id="deletePostBtn"
+        onclick="return confirm('Are you sure you want to delete this item?');">Delete Post</a>
     </div>
   </div>
   <div class="col-12">
@@ -164,7 +165,7 @@
   </div>
 </div>
 
-<!-- Delete confirmation modal - Comment -->
+<!-- Delete confirmation modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1"
   aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -181,7 +182,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary"
-          data-dismiss="modal">Close</button>
+          data-bs-dismiss="modal">Close</button>
         <a id="deleteConfirm" href="#" class="btn
           btn-danger">Delete</a>
       </div>

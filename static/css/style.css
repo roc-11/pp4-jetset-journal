@@ -16,10 +16,6 @@ body {
   font-family: 'Lato';
 }
 
-#hero-content {
-  margin-top: 10%;
-}
-
 #inner-hero {
   background-color: hsla(0, 2%, 35%, 0.692);
   padding: 20px;
