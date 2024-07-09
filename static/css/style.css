@@ -16,6 +16,16 @@ body {
   font-family: 'Lato';
 }
 
+#hero-content {
+  margin-top: 20%;
+}
+
+#inner-hero {
+  background-color: hsla(0, 2%, 35%, 0.692);
+  padding: 20px;
+  font-weight: 700;
+}
+
 /* headings and logo */
 h1,
 h2,
@@ -125,6 +135,10 @@ h3 {
  .mobile-image {
     display: none !important;
     overflow: hidden;
+ }
+
+ .hero-div .row {
+  margin: 0;
  }
 
 }
