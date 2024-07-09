@@ -31,13 +31,14 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu108.gitpod.io',
-                    '8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu110.gitpod.io',
-                    '8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu109.gitpod.io',
-                    '8000-roc11-pp4jetsetjournal-pjsbtglkq9d.ws.codeinstitute-ide.net',
-                    'pp4-jetset-journal-4cbea9e2528c.herokuapp.com',
-                    '.herokuapp.com'
-                    'localhost',
+ALLOWED_HOSTS = [
+    '8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu108.gitpod.io',
+    '8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu110.gitpod.io',
+    '8000-roc11-pp4jetsetjournal-3phl2z74cwr.ws-eu109.gitpod.io',
+    '8000-roc11-pp4jetsetjournal-pjsbtglkq9d.ws.codeinstitute-ide.net',
+    'pp4-jetset-journal-4cbea9e2528c.herokuapp.com',
+    '.herokuapp.com'
+    'localhost',
 ]
 
 
@@ -102,7 +103,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # required by allauth
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],

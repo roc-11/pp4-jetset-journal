@@ -10,10 +10,6 @@ const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
-const deleteModalPost = new bootstrap.Modal(document.getElementById("deleteModalAdmin"));
-const deleteButtonsPost = document.getElementsByClassName("btn-delete-1");
-const deleteConfirmPost = document.getElementById("deleteConfirmAdmin");
-
 /**
 * Initializes edit functionality for the provided edit buttons.
 * 
@@ -51,11 +47,3 @@ for (let button of deleteButtons) {
       deleteModal.show();
     });
   }
-
-for (let button of deleteButtonsPost) {
-  button.addEventListener("click", (e) => {
-    let postId = e.target.getAttribute("value");
-    deleteConfirmPost.href = `delete_blog_post/${postId}`;
-    deleteModalPost.show();
-  });
-}

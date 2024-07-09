@@ -13,7 +13,6 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | Home | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp4-jetset-journal-4cbea9e2528c.herokuapp.com%2F) | ![screenshot](documentation/testing/html-validator-home-new.png) | no errors |
 | Contact | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp4-jetset-journal-4cbea9e2528c.herokuapp.com%2Fcontact%2F) | ![screenshot](documentation/testing/html-validator-contact-new.png) | no errors |
 | About | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp4-jetset-journal-4cbea9e2528c.herokuapp.com%2Fabout%2F) | ![screenshot](documentation/testing/html-validator-about-new.png) | Bad value 75% for attribute width on element img. Displays as expected. |
-| Post Detail | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp4-jetset-journal-4cbea9e2528c.herokuapp.com%2Fabout%2F) | ![screenshot](documentation/testing/html-validator-about.png) | Element p not allowed as child of element span in this context. (Suppressing further errors from this subtree.) Bad value 75% for attribute width on element img. |
 | Profile | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpp4-jetset-journal-4cbea9e2528c.herokuapp.com%2Fprofile%2F) | ![screenshot](documentation/testing/html-validator-profile-new.png) | no errors |
 
 ### CSS
