@@ -10,5 +10,4 @@ class UserProfileAdmin(admin.ModelAdmin):
     information and contact details.
     """
     list_display = ['user', 'profile_picture', 'date_of_birth']
-    search_fields = ['user__username', 'user__email', ]
-# admin.site.register(UserProfile)
+    search_fields = ['user__username', ]

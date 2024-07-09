@@ -11,7 +11,9 @@ class UserProfile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
-    profile_picture = CloudinaryField('image', default='placeholder')
+    profile_picture = models.ImageField(
+        default='placeholder.jpg', 
+        upload_to='image/')
     date_of_birth = models.DateField(blank=True, null=True)
     email = models.EmailField(blank=True)
 

@@ -574,8 +574,6 @@ def add_to_wishlist(request, slug, *args, **kwargs):
 
 ### Unresolved bugs
 
-The image preview button feature is not working correctly. This is for the existing blog post image when an admin is editing a post, and also when editing the user's profile image. I added Javascript code to handle this, but it is not currently working as intended due to the image being a Cloudinary Image. This will be fixed in the next iteration.
-
 There are no other unresolved bugs that I am aware of.
 
 ### Future Features/Improvements
@@ -590,6 +588,10 @@ There are no other unresolved bugs that I am aware of.
 * Emails will be extended and utilised in future implementations of Jetset Journal. 
 * Users will need to verify a link when they sign up for an account. 
 * Users will be able to click "forgot password" from the sign in sections. This will email them instructions on how to reset their password, so that they can regain login capabilities on the website. 
+
+#### Image Preview 
+
+I would like to add a preview of the currently uploaded image to the edit blog post form and user profile form. This is for the existing blog post image when an admin is editing a post, and also when editing the user's profile image. I added Javascript code to handle this, but it is not currently working as intended due to the image being a Cloudinary Image. This will be fixed in the next iteration.
 
 ## Tools & Technologies Used
 
@@ -666,7 +668,9 @@ class UserProfile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
-    profile_picture = CloudinaryField('image', default='placeholder')
+    profile_picture = models.ImageField(
+        default='placeholder.jpg', 
+        upload_to='images/')
     date_of_birth = models.DateField(blank=True, null=True)
     email = models.EmailField(blank=True)
 
