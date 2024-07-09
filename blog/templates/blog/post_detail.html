@@ -59,9 +59,11 @@
                   {% endif %}
           </form>
       {% else %}
+          <div class="col-6 mb-4">
           <a href="{% url 'account_login' %}" class="btn btn-like-wish mt-2">
               <i class="far fa-heart fa-sm" style="color: #000;"></i><span class="ml-1 like-text">Add to Favourites</span>
           </a>
+          </div>
       {% endif %}
     </div>
      <!-- Displaying count of likes -->
