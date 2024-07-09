@@ -202,6 +202,53 @@ File "/workspace/.pip-modules/lib/python3.9/site-packages/django/db/backends/sql
 return super().execute(query)
 sqlite3.OperationalError: near "None": syntax error
 ```
+## Fixed Bugs
+
+- Homepage Hero Image - I had a cool CSS styling imported, which made the hero image increase in size on user hover over, and also gave it a subdued background colour. However, this was causing huge load and performance issues with the site. The CSS imported was slowing down the site homepage and making the hero image loading process have a massive impact on performance and best practice scores (Lighthouse). So a new Hero image was generated using the website [leonardo.ai](https://leonardo.ai/) and new CSS styling was implemented.
+
+Old Homepage            |  New Homepage
+:-------------------------:|:-------------------------:
+![Screenshot of the footer desktop](documentation/features/hero-section-home.png)  |  ![Screenshot of the footer mobile](documentation/features/hero-section-home-new.png)
+
+- On the first project iteration, I tried to implement a UserProfile and Profile page but failed to do so correctly. I ammended this on my project repeat. I removed blog_userprofile model, as it was incorrect and not working. I accidentally dropped the table blog_userprofile from Elephany SQL before running my migrations so caused big issues. I recreated the table blog_userprofile manually using SQL, and then could successfully run migrations to remove the model and all code referencing userprofile from the Blog app.
+I then created a new app - Profiles - and made a UserProfile model, template, urls and views to show the user's profile. I added a receiver to automatically create a user profile when a user is added to the DB. It all works as intented.
+
+![Screenshot of the user profile](documentation/features/my_profile_page.png)
+
+- I added a wishlist/favourite post functionality which I also could not do correctly on the first project iteration. 
+
+![Screenshot of the favourites page](documentation/features/favourites_page.png)
+
+- I implemented real email functionality in order for users to signup to the blog as a user. They must now validate their email before they have access to the site. This is explained in the README.md file in the features>signup section.
+
+- I successfully added front-end UI/functionality for blog admins to add, edit and delete (CRUD) posts from the front end, without having to log into the Django admin.
+
+- I ran into issues with the user profile image on the profile page. First I installed pillow. I had to edit the image field on the model to fix this. I also had to add a folder to Cloudinary called media/image, and edit the settings.py file to ensure that the user uploaded images when to the correct place. 
+
+settings.py:
+```python
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+```
+
+models.py
+```python
+class UserProfile(models.Model):
+    
+    profile_picture = models.ImageField(
+        default='placeholder.jpg',
+        upload_to='image/')
+```
+
+![Screenshot - errors ](documentation/testing/error-no-file.png)
+
+![Screenshot - errors ](documentation/testing/error-pillow-install.png)
+
+![Screenshot - errors ](documentation/testing/error-profile-image-load.png)
+
+![Screenshot - Profile Fixed ](documentation/testing/my-profile-fixed.png)
+
+- SECRET KEY NB - I had exposed my secret key in the first project iteration, due to the tight time constraints I was under. This was a silly mistake and I have generated a new key, correctly added it to the env.py file (.gitignore) and also to my Heroku config vars.
 
 ## Unfixed Bugs
 

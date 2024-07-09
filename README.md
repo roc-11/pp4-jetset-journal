@@ -2,7 +2,7 @@
 
 ## Developer: Róisín O'Connell 
 
-![Jetset Journal Mockup Image](documentation/jetset_journal_mockup.png)
+![Jetset Journal Mockup Image](documentation/jetset_journal_mockup_new.png)
 
 [View the live project here](https://pp4-jetset-journal-4cbea9e2528c.herokuapp.com/)
 
@@ -197,6 +197,9 @@ The following features have been implemented:
 * The navigation makes the different sections of information easy to find.
 * On smaller devices the navigation converts to a burger menu
 
+* Updated Naviagtion Bar with Profile and Favourites
+![Screenshot of the navigation logged in](documentation/features/navigation_logged_in_new.png)
+
 ![Screenshot of the navigation logged in](documentation/features/navigation_logged_in.png)
 
 ![Screenshot of the navigation logged out](documentation/features/navigation_logged_out.png)
@@ -212,6 +215,9 @@ The following features have been implemented:
 * On smaller devices the layout changes to one column per post to maximise usable screen space. 
 * The next button takes the user to the next 6 blog posts (pagination)
 * The user can click on the blog post's title/excerpt to take them to that post's post detail page. Here they can view the whole post. 
+
+* Homepage Screenshot Updated:
+![Screenshot of the homepage hero section](documentation/features/hero-section-home-new.png)
 
 ![Screenshot of the homepage hero section](documentation/features/hero-section-home.png)
 
@@ -831,6 +837,28 @@ To obtain your own Cloudinary API key, create an account and log in.
 - Optional: *edit your assigned cloud name to something more memorable*.
 - On your Cloudinary Dashboard, you can copy your **API Environment Variable**.
 - Be sure to remove the `CLOUDINARY_URL=` as part of the API **value**; this is the **key**.
+
+### Gmail API
+
+This project uses [Gmail](https://mail.google.com) to handle user email validation upon registration.
+
+Once you've created a Gmail (Google) account and logged-in, follow these series of steps to get your project connected.
+
+- Click on the **Account Settings** (cog icon) in the top-right corner of Gmail.
+- Click on the **Accounts and Import** tab.
+- Within the section called "Change account settings", click on the link for **Other Google Account settings**.
+- From this new page, select **Security** on the left.
+- Select **2-Step Verification** to turn it on. (verify your password and account)
+- Once verified, select **Turn On** for 2FA.
+- Navigate back to the **Security** page, and you'll see a new option called **App passwords**.
+- This might prompt you once again to confirm your password and account.
+- Select **Mail** for the app type.
+- Select **Other (Custom name)** for the device type.
+	- Any custom name, such as "Django" or football-crazy-pp5
+- You'll be provided with a 16-character password (API key).
+	- Save this somewhere locally, as you cannot access this key again later!
+	- `EMAIL_HOST_PASS` = user's 16-character API key
+	- `EMAIL_HOST_USER` = user's own personal Gmail email address
 
 ### Heroku Deployment
 
