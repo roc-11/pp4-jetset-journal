@@ -11,7 +11,7 @@
                 <p class="lead mt-3">Join the adventure and elevate your wanderlust with Jetset Journal</p>
                 <p class="lead mb-5">- where every journey begins with a spark of wander and ends with a story worth sharing!</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <a href="{% url 'about' %}"><button type="button" class="btn bsb-btn-3xl btn-outline-light" id="learnMoreBtn">Learn More</button></a>
+                    <a href="{% url 'about' %}" type="button" class="btn bsb-btn-3xl btn-outline-light" id="learnMoreBtn">Learn More</a>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
     Latest Posts
 </h2>
 </div>
-<main class="container">
+<div class="container">
     <!-- Blog Entries Column -->
     <div class="row mb-2">
         {% for post in post_list %}
@@ -72,7 +72,7 @@
         </ul>
     </nav>
     {% endif %}
-</main>
+</div>
 
 <!-- index.html content ends here -->
 {% endblock %}

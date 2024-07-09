@@ -87,9 +87,9 @@
                 <span class="navbar-text text-muted">
                     <!-- Greet Logged in User/Display message-->
                     {% if user.is_authenticated %}
-                    <p class="text-end m-1">You are logged in as <span id="logged-in-as" class="d-inline p-2"> {{ user }}</span></p>
+                    <span class="text-end m-1">You are logged in as <span id="logged-in-as" class="d-inline p-2"> {{ user }}</span></span>
                     {% else %}
-                    <p class="text-end m-1">You are not logged in</p>
+                    <span class="text-end m-1">You are not logged in</span>
                     {% endif %}
                 </span>
             </div>
