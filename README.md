@@ -60,6 +60,7 @@ All epics, user stories with their acceptance criteria and tasks can be viewed o
 - There were 15 Epics created from Project Concept to Project Submission.
 
 - There were 23 User Stories Created including:
+
     1. USERSTORY # 1: Gather General Requirements & Visual Layout
         - As a Developer I can see how the site should be laid out and make a detailed plan so that the site functionality can be developed in an incremental manner.
     2. USERSTORY #2: Initial Django project setup
@@ -106,7 +107,9 @@ All epics, user stories with their acceptance criteria and tasks can be viewed o
         - As a Logged in User I can view my user profile so that manage my profile and update my user details.
     23. USERSTORY #23: Edit User Profile/Dashboard Page
         - As a Logged in User I can edit my user profile so that manage my profile and update my user details.
+
 - There were 7 additional User Stories/Bug fixes Created including:
+
     22. USERSTORY #22: Create User Profile/Dashboard Page
         - As a Logged in User I can edit my user profile so that manage my profile and update my user details.
     23. USERSTORY #23: Edit User Profile/Dashboard Page
@@ -178,6 +181,9 @@ The following features have been implemented:
   - Logout
   - Register
   - Blog Detail - with CRUD functionality for logged in users to like a post and/or comment on a post (comments can be edited or deleted)
+  - My Profile
+  - Favourite Posts
+  - Blog Admin - with CRUD functionality for logged in superadministrators
 
 ### Existing Features
 
@@ -615,6 +621,8 @@ class Post(models.Model):
         choices=DESTINATIONS, default='europe', max_length=50)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
+    users_wishlist = models.ManyToManyField(
+        User, related_name="user_wishlist", blank=True)
 
     class Meta:
         ordering = ["-created_on"]
@@ -651,6 +659,30 @@ class Like(models.Model):
 
     def __str__(self):
         return str(self.post)
+
+class UserProfile(models.Model):
+    """
+    A User Profile model for the user dashboard
+    """
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(blank=True)
+    profile_picture = CloudinaryField('image', default='placeholder')
+    date_of_birth = models.DateField(blank=True, null=True)
+    email = models.EmailField(blank=True)
+
+    def __str__(self):
+        return self.user.username
+
+
+@receiver(post_save, sender=User)
+def create_or_update_user_profile(sender, instance, created, **kwargs):
+    """
+    Create or update the user profile
+    """
+    if created:
+        UserProfile.objects.create(user=instance)
+    # Existing users: just save the profile
+    instance.userprofile.save()
 ```
 
 ## Agile Development Process
@@ -710,6 +742,7 @@ The site has been built with the following tech and tools:
 13. Git - version control
 14. GitPod & VS Code - IDE
 15. Heroku - live site hosting
+16. Gmail - Jetset Journal email to send real emails
 
 ### Frameworks, Libraries & Programs Used
 
