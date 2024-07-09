@@ -1,26 +1,108 @@
+{% load static %}
 {% load i18n %}
 <!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="{% static 'images/favicon-jetset-journal.png' %}" rel="icon" type="image/x-icon">
+
+    <!-- Google Fonts CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
     <title>{% block head_title %}{% endblock head_title %}</title>
     {% block extra_head %}
     {% endblock extra_head %}
   </head>
-  <body>
+  <body class="d-flex flex-column h-100 main-bg">
     {% block body %}
 
-    {% if messages %}
-    <div>
-      <strong>{% trans "Messages:" %}</strong>
-      <ul>
+     <!-- Navigation -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}">
+              <img src="{% static 'images/logo.png' %}" alt="Jetset Journal Logo" height="50" class="brand_logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+              aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
+                          href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == about_url %}active{%endif%}" aria-current="page" href="{% url 'about' %}">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == contact_url %}active{%endif%}" aria-current="page" href="{% url 'contact' %}">Contact</a>
+                  </li>
+                  {% if user.is_authenticated %}
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == wishlist_url %}active{%endif%}" aria-current="page" href="{% url 'wishlist' %}">Favourite Posts</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == profile_url %}active{%endif%}" aria-current="page" href="{% url 'profile' %}">
+                          <i class="fas fa-user-circle"></i> My Profile
+                      </a>
+                  </li>
+                  {% endif %}
+                  <!-- User Account Section - Login/Logout/Register links-->
+                  {% if user.is_authenticated %}
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">
+                          <i class="fas fa-user"></i> Logout</a>
+                  </li>
+                  {% else %}
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">
+                          <i class="fas fa-user"></i> Login / Register</a>
+                  </li>
+                  {% endif %}
+              </ul>
+              <span class="navbar-text text-muted">
+                  <!-- Greet Logged in User/Display message-->
+                  {% if user.is_authenticated %}
+                  <span class="text-end m-1">You are logged in as <span id="logged-in-as" class="d-inline p-2"> {{ user }}</span></span>
+                  {% else %}
+                  <span class="text-end m-1">You are not logged in</span>
+                  {% endif %}
+              </span>
+          </div>
+      </div>
+  </nav>
+
+  <!-- displaying Django messages -->
+  <div class="container" id="djangoMsgs">
+    <div class="row">
+    <div class="col-md-8 offset-md-2">
         {% for message in messages %}
-        <li>{{message}}</li>
+        <div class="alert {{ message.tags }} alert-dismissible
+        fade show" id="msg" role="alert">
+        {{ message | safe }}
+        <button type="button" class="btn-close"
+            data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         {% endfor %}
-      </ul>
     </div>
-    {% endif %}
+    </div>
+  </div>
 
     <div>
       <strong>{% trans "Menu:" %}</strong>
@@ -34,10 +116,52 @@
         {% endif %}
       </ul>
     </div>
+
+    <main class="flex-shrink-0 main-bg mt-2">
     {% block content %}
     {% endblock content %}
+    </main>
+
     {% endblock body %}
     {% block extra_body %}
     {% endblock extra_body %}
+
+    <!-- Footer -->
+    <footer class="py-3 mt-auto my-4 dark-bg">
+      <ul class="nav justify-content-center pb-3 mb-3">
+          <li class="nav-item">
+              <a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a>
+          </li>
+          <li class="nav-item">
+              <a href="{% url 'about' %}" class="nav-link px-2 text-white">About</a>
+          </li>
+          <li class="nav-item">
+              <a href="{% url 'contact' %}" class="nav-link px-2 text-white">Contact</a>
+          </li>
+      </ul>
+      <ul class="nav justify-content-center pb-3 mb-3">
+          <li class="ms-3">
+              <a class="text-white" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="visit our facebook page (opens in a new tab)">
+                  <i class="fab fa-facebook" aria-hidden="true"></i>
+              </a>
+          </li>
+          <li class="ms-3">
+              <a class="text-white" href="https://twitter.com/" target="_blank" rel="noopener" aria-label="visit our twitter page (opens in a new tab)">
+                  <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+          </li>
+          <li class="ms-3">
+              <a class="text-white" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="visit our instagram page (opens in a new tab)">
+                  <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+          </li>
+      </ul>
+      <p class="text-center text-white">© 2024 For Educational Puposes</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+  </script>
+
   </body>
 </html>
