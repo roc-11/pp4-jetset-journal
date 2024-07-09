@@ -328,6 +328,109 @@ def about_jetset_journal(request):
 
 ![Screenshot of the Users - logout](documentation/features/logout.png)
 
+### Blog Admin Page/Functionality (CRUD)
+
+* Superusers/site administrators have an additional functionality of being able to add a new blog post to the blog/DB on the front-end by filling out a form. They can access this feature by clicking "Profile >> Add A New Blog Post".
+* This makes it simple for blog owners to add a new post to the blog, by filling out the required blog post information and clicking "Add Blog Post".
+* There is a default "no image" which shows when the owner adds a new post but does not supply an image.
+
+![Screenshot of the Add a Blog Post](documentation/features/add_blog_post_button_profile.png)
+
+Add a Blog Post Form            |  Add a Blog Post Form
+:-------------------------:|:-------------------------:
+![Screenshot of the footer desktop](documentation/features/add_blog_post_form_1.png)  |  ![Screenshot of the footer mobile](documentation/features/add_blog_post_form_2.png)
+ 
+```python
+@login_required
+def add_blog_post(request):
+    """
+    Add a blog post to the blog.
+    Accessible only to superusers (administrators).
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only blog owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        post_form = PostForm(request.POST, request.FILES)
+        if post_form.is_valid():
+            post = post_form.save()
+            messages.success(request, 'Successfully added blog post!')
+            return redirect(reverse('post_detail', args=[post.slug]))
+        else:
+            messages.error(
+                request, 'Failed to add blog post. Please ensure the form is valid.')
+    else:
+        post_form = PostForm()
+
+    template = 'blog/add_blog_post.html'
+    context = {
+        'form': post_form
+    }
+
+    return render(request, template, context)
+```
+
+* Site admins have full CRUD functionality with the blog post admin feature. They can also EDIT an existing post by clicking the edit button. This will bring them to the same form as "Add a Blog Post", except the post information will be prefilled from the DB.
+* Similarly a DELETE button exists if a blog owner wishes to remove a post from the blog.
+
+![Screenshot of the Edit a Blog Post - Admin Tools](documentation/features/post_admin_tools.png)
+
+Edit a Blog Post Form            |  Edit a Blog Post Form
+:-------------------------:|:-------------------------:
+![Screenshot of the footer desktop](documentation/features/edit_blog_post_form_1.png)  |  ![Screenshot of the footer mobile](documentation/features/edit_blog_post_form_2.png)
+
+```python
+@login_required
+def edit_blog_post(request, slug):
+    """
+    Edit a blog post in the blog
+    Accessible only to superusers (administrators).
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only blog owners can do that.')
+        return redirect(reverse('home'))
+
+    post = get_object_or_404(
+        Post, slug=slug)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated blog post!')
+            return redirect(reverse('post_detail', args=[slug]))
+        else:
+            messages.error(
+                request, 'Failed to update blog post. Please ensure the form is valid.')
+    else:
+        form = PostForm(instance=post)
+        messages.info(request, f'You are editing {post.title}')
+
+    template = 'blog/edit_blog_post.html'
+    context = {
+        'form': form,
+        'post': post,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_blog_post(request, slug):
+    """
+    Delete a blog post in the blog
+    Accessible only to superusers (administrators).
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only blog owners can do that.')
+        return redirect(reverse('home'))
+
+    post = get_object_or_404(Post, slug=slug)
+    post.delete()
+    messages.success(request, 'Blog post deleted!')
+
+    return redirect(reverse('home'))
+```
 ### Footer
 
 * The footer is simple with a navigation menu and social links. 
@@ -351,75 +454,6 @@ There are no unresolved bugs.
 
 * It was intended that this be included in this project iteration but time did not permit. 
 * There is a destinations field in the Post Model with a list of continents (like a category of blog posts). It is intended that this field be linked to a Destination Model/Table in the DB. This would allow users to visit the Destinations page and to select from a dropdown menu in order to filter blog posts by Destination. E.g. Europe would return all the blog posts about countries in Europe. 
-
-#### My Profile / User Dashboard 
-
-* It was intended that this be included in this project iteration but due to many errors and problems it had to be omitted. 
-* Logged in users will see a My Profile tab in the navigation bar, beside Logout. Here they will be able to create/edit their user profile. This will contain information from the User table combined with the User Profile, such as a bio, date of birth and profile image. 
-* Below is a sample of the code I tried to implement but could not finalise, so it was removed from the project. 
-
-```python
-
-Models.py
-
-class UserProfile(models.Model):
-    
-    user = models.OneToOneField(
-        User, null=True,  on_delete=models.CASCADE, related_name='user_profile')
-    bio = models.TextField(blank=True)
-    profile_picture = CloudinaryField('image', default='placeholder')
-    date_of_birth = models.DateField(blank=True, null=True)
-    email = models.EmailField(blank=True)
-
-    def __str__(self) -> str:
-        """ Returns a string representation of the associated user. """
-        return str(self.user)
-
-    def get_absolute_url(self):
-        """ Returns the absolute URL for the user's profile page. """
-        return reverse('show_user_profile_page', args=[str(self.pk)])
-
-    def is_complete(self):
-        """
-        Checks if the user's profile is considered complete.
-        """
-        required_fields = [
-            'bio',
-        ]
-
-        for field_name in required_fields:
-            if not getattr(self, field_name):
-                return False
-
-        return True
-
-@receiver(post_save, sender=User)
- def create_or_update_user_profile(sender, instance, created, **kwargs):
-     """
-     Create or update the user profile
-     """
-    if created:
-         UserProfile.objects.create(user=instance)
-     # Existing users: just save the profile
-     instance.userprofile.save()
-
-Views.py 
-@login_required
-def profile(request, username):
-
-     user = get_object_or_404(User, username=username)
-     profile = get_object_or_404(UserProfile, user=user)
-
-     context = {
-        'profile': profile
-    }
-
-    return render(request, 'blog/my_profile.html', {'profile': profile, 'user': user})
-
-urls.py 
-
-path('profile/<username>/', views.profile, name='profile'),
-```
 
 #### Forgot Password
 
@@ -746,6 +780,7 @@ I followed a number of tutorials in order to create this Django website. I was a
 * [Django CRUD Functions](https://www.youtube.com/watch?v=EX6Tt-ZW0so)
 * [Testing in Django](https://docs.djangoproject.com/en/4.2/topics/testing/)
 * [Categories Tutorial](https://www.ericsdevblog.com/posts/django-for-beginners-4/)
+* [Python Django Ecommerce Customer Wish List by 'Very Academy'](https://www.youtube.com/watch?v=OgA0TTKAtqQ)
 
 I spent a great deal of time trying to create a "My Profile" page for the website. This feature would allow users to manage their profile and add/edit their information. Unfortunately due to time constraints, the code for this had to be removed as it did not function perfectly. It has moved to a future implementation. 
 * [How to extend Django User Model](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html)
@@ -763,7 +798,8 @@ I spent a great deal of time trying to create a "My Profile" page for the websit
 ### Media
 
 * The Jetset Journal logo, favicon and icon was created using [Canva](https://www.canva.com/ "Link to Canva Home Page"). 
-* Hero Image - [Pexels: Ajay Donga](https://www.pexels.com/photo/woman-and-man-riding-on-motorcycle-2174656/)
+* The updated Hero Image was generated with Generative AI using the website [leonardo.ai](https://leonardo.ai/), and extended using [Adobe Photoshop](https://www.adobe.com/ie/products/photoshop/landpa.html?gclid=Cj0KCQjwvb-zBhCmARIsAAfUI2sQ-579PWJuFVy750U14vPEel_uLYYJpZyAMWNRar9E-3A0VRUF_T8aAo8oEALw_wcB&mv=search&mv=search&mv2=paidsearch&sdid=2XBSBWBF&ef_id=Cj0KCQjwvb-zBhCmARIsAAfUI2sQ-579PWJuFVy750U14vPEel_uLYYJpZyAMWNRar9E-3A0VRUF_T8aAo8oEALw_wcB:G:s&s_kwcid=AL!3085!3!441704131147!e!!g!!adobe%20photoshop!1423511192!58810496314&gad_source=1) to fit the dimensions required for the website.
+* Hero Image - [Pexels: Ajay Donga](https://www.pexels.com/photo/woman-and-man-riding-on-motorcycle-2174656/) (old Hero Image).
 * All of the images were sourced from various artists on [Pexels](https://www.pexels.com/ "Link to Pexels.com").
  - [Pexels: Ajay Donga](https://www.pexels.com/photo/woman-and-man-riding-on-motorcycle-2174656/)
  - [Pexels: Porapak Apichodilok](https://www.pexels.com/photo/person-holding-world-globe-facing-mountain-346885/)
