@@ -17,6 +17,12 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
 
 
-# Register your models here.
-admin.site.register(Comment)
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    """
+    Lists body, post and approved fields for display in admin
+    """
+    list_display = ('body', 'post', 'approved',)
+
+
 admin.site.register(Like)
