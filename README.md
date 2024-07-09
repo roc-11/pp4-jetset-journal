@@ -35,11 +35,13 @@ Goals for New Users
 * As a new site user, I would like to easily contact the website administrators with questions.
 * As a new site user, I would like to easily understand the main purpose of the site.
 * As a new user, I want attractive and relevant visuals and colour schemes that work with the content.
+* As a new site user, I would like to add blog posts to my wishlist/favourites so that I can return to them at a later date/time.
 
 Goals for Returning Users
 * As a returning site user, I would like to view an intuitive website with straightforward navigation that is fully responsive.
 * As a returning site user, I would like to easily log into my account so that I can comment on and like blog posts. 
 * As a returning site user, I would like to easily edit and delete any comments that I make.
+* As a returning site user, I would like to add blog posts to my wishlist/favourites so that I can return to them at a later date/time.
 
 Goals for Site Administrators
 * As a site administrator, I would like to have a recognizable branded admininstator area to manage users, blog posts, blogs comments and blog likes.
@@ -48,6 +50,8 @@ Goals for Site Administrators
 * As a site administrator, I would like to have control over approving user comments before they appear on the front-end.
 * As a site administrator, I would like to manage user contact requests and mark them as read.
 * As a site administrator, I would like to have a simple UI that will encourage users to return and engage with the blog.
+* As a site administrator, I would like to easily add a new blog post to the website/blog from the front-end/website.
+* As a site administrator, I would like to easily edit or delete a blog post from the  website/blog from the front-end/website. 
 
 #### User Stories
 
@@ -102,6 +106,21 @@ All epics, user stories with their acceptance criteria and tasks can be viewed o
         - As a Logged in User I can view my user profile so that manage my profile and update my user details.
     23. USERSTORY #23: Edit User Profile/Dashboard Page
         - As a Logged in User I can edit my user profile so that manage my profile and update my user details.
+- There were 7 additional User Stories/Bug fixes Created including:
+    22. USERSTORY #22: Create User Profile/Dashboard Page
+        - As a Logged in User I can edit my user profile so that manage my profile and update my user details.
+    23. USERSTORY #23: Edit User Profile/Dashboard Page
+        - As a Logged in User I can edit my user profile so that manage my profile and update my user details.
+    24. Fix Issues for project re-submission.
+        - As a developer I can fix bugs and issues with the website so that I can pass PP4 upon project resubmission.
+    25. Bug fix: Image preview on profile and blog post edit
+        - Fix issue on edit a blog post (admin) and edit my profile - image preview not showing up for image currently in DB.
+    26. Documentation: finish README file.
+        - Update README.md file to include changes and improvements made for project resubmission.
+    27. Documentation: finish TESTING file.
+        - Update TESTING.md file to include changes and improvements made for project resubmission.
+    28. Project Resubmission.
+        - Resubmit PP4 for grading.
 
 ### Wireframes
 
@@ -431,6 +450,108 @@ def delete_blog_post(request, slug):
 
     return redirect(reverse('home'))
 ```
+
+### Profile Page
+
+* The Profile Page is accessed by clicking on the "MY PROFILE" button in the navigation bar.
+* If a user has an account and is logged in, they can view and edit their profile information.
+* The page features a form with profile info - bio, profile image, date of birth, email. All of the profile info is contained in a form. The form will initially be empty. Once the user fills in the form and clicks the "UPDATE INFORMATION" button, the profile info will be saved to the DB. The next time the user accesses the profile page, the profile info will be prefilled. It can be edited by again clicking the "UPDATE INFORMATION" button.
+* If a user is a logged in site admin, they will see the "ADD A BLOG POST" button and can add a blog post. See the [Blog Admin Section](#blog-admin-pagefunctionality-crud) for more information.
+* User's can also view their favourited posts by clicking the "FAVOURITED POSTS" button. See the [Favourites Section](#favourite-posts) for more information.
+
+![Screenshot of My Profile](documentation/features/my_profile_page.png)
+
+```python
+@login_required
+def profile(request):
+    """
+    Display the user's profile.
+    """
+    profile = get_object_or_404(UserProfile, user=request.user)
+
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully')
+        else:
+            messages.error(
+                request, 'Update failed. Please ensure the form is valid.')
+    else:
+        form = UserProfileForm(instance=profile)
+
+    template = 'profiles/profile.html'
+    context = {
+        'profile': profile,
+         'form': form,
+    }
+
+    return render(request, template, context)
+```
+
+### Favourite Posts
+
+* The favourite posts/wishlist was an additional feature added to the blog which was not in the initial plan.
+* The feature is only available to registered, logged in users.
+* From the "Blog Detail" page, a user can click the "Add to Favourites" button, adding that blog post to their favourites. The page will reload, and with the post now in the user's favourites, the button text will change to "Remove from Favourites". Click the button now will remove the post from the user's favourites.
+* User's can view a list of the posts in their favourites list by clicking on the "FAVOURITED POSTS" button on the "MY PROFILE" page. This will direct them to their favourites page.
+* The favourites page simply consists of a loop, rendering each item the user favourited in a card. The card contains blog post information (catergory, title, author, date) as well as a post image on larger screen sizes. There is another "Remove from Favourites" button here which users can click to remove that item from their favourites list.
+* Clicking the post title on the card will bring the user to the Post Details page for that blog post.
+
+![Screenshot of Post Details - Favourite Post](documentation/features/post_detail_add_to_favourites.png)
+
+![Screenshot of Favourites Page](documentation/features/favourites_page.png)
+
+```python
+@login_required
+def wishlist(request):
+    """
+    Display the user's / favourites.
+    This view renders the user's wishlist / favourites page.
+    """
+    profile = get_object_or_404(UserProfile, user=request.user)
+    posts = Post.objects.filter(users_wishlist=request.user)
+
+    template = 'profiles/wishlist.html'
+    context = {
+        'wishlist': posts,
+        'profile': profile,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_to_wishlist(request, slug, *args, **kwargs):
+    """
+    This view handles adding to, and removing a blog from,
+    the user's wishlist / favourites.
+    Renders the user's wishlist / favourites page.
+    """
+    queryset = Post.objects.filter(status=1)
+    post_wish = get_object_or_404(queryset, slug=slug)
+    user = request.user
+    user_profile = user.userprofile
+
+    liked = False
+
+    if post_wish.users_wishlist.filter(id=request.user.id).exists():
+        post_wish.users_wishlist.remove(request.user)
+        messages.success(
+            request,
+            f'Successfully removed {post_wish} from Favourites List!'
+        )
+        liked = False
+    else:
+        post_wish.users_wishlist.add(request.user)
+        messages.success(
+            request, f'Successfully added {post_wish} to Favourites List!'
+        )
+        liked = True
+
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])
+```
+
 ### Footer
 
 * The footer is simple with a navigation menu and social links. 
@@ -446,7 +567,10 @@ def delete_blog_post(request, slug):
 ![Screenshot of the admin area](documentation/features/admin-area.png)
 
 ### Unresolved bugs
-There are no unresolved bugs.
+
+The image preview button feature is not working correctly. This is for the existing blog post image when an admin is editing a post, and also when editing the user's profile image. I added Javascript code to handle this, but it is not currently working as intended due to the image being a Cloudinary Image. This will be fixed in the next iteration.
+
+There are no other unresolved bugs that I am aware of.
 
 ### Future Features/Improvements
 
