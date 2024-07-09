@@ -353,6 +353,22 @@ def about_jetset_journal(request):
 
 ![Screenshot of the Users - logout](documentation/features/logout.png)
 
+### Users - Registration/Signup - Email Validation
+
+* Upon successful filling in of the sign up form, users will receive a real email from the Jetset Journal Gmail account. 
+
+* Users must click on the validation link in order to complete site registration. This will take them to their unique email validation page. Clicking confirm will change the DB user to validated. Users will be redirected to the login page. They can then login and begin using the site as a logged-in user.
+
+![Screenshot of the Users Signup Validation (Email)](documentation/features/signup-page-email-validation.png)
+
+![Screenshot of the Users Signup Validation (Email)](documentation/features/signup-email-confirm.png)
+
+![Screenshot of the Users Signup Validation (Email)](documentation/features/email-confirm-received.png)
+
+![Screenshot of the Users Signup Validation (Email)](documentation/features/email-confirmation-validate-link.png)
+
+![Screenshot of the Users Signup Validation (Email)](documentation/features/signup-email-validated.png)
+
 ### Blog Admin Page/Functionality (CRUD)
 
 * Superusers/site administrators have an additional functionality of being able to add a new blog post to the blog/DB on the front-end by filling out a form. They can access this feature by clicking "Profile >> Add A New Blog Post".

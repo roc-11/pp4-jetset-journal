@@ -107,6 +107,8 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | | Click on Contact link in navbar | Redirection to Contact page | Pass | |
 | | Click on Login/Register link in navbar | Redirection to Login page | Pass | |
 | | Click on Logout link in navbar | Redirection to Logout page | Pass | |
+| | Click on Profile link in navbar | Redirection to Profile page - if logged in user | Pass | |
+| | Click on Favourite Posts link in navbar | Redirection to Favourites page - if logged in user | Pass | |
 | | Click on Blog Post link (title/exceprt in card) | Redirection to blog detail page for that post | Pass | |
 | Contact | | | | |
 | | Click on Contact link in navbar | Redirection to Contact page | Pass | |
@@ -116,8 +118,10 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | | Click the Submit button | Redirects user to Contact page (blank form) and displays succes message | Pass | User must click 'Back' button to return |
 | Sign Up | | | | |
 | | Click on Sign Up button | Redirection to Sign Up page | Pass | |
-| | Enter valid email address (optional - can be blank) | Field will only accept email address format | Pass | |
+| | Enter valid email address | Field will only accept email address format | Pass | |
 | | Enter valid password (twice) | Field will only accept password format | Pass | |
+| | Click sign up button, with all valid information in form | Redirect to email confirmation page, confirmation email sent to user's email. | Pass | |
+| | Click email validation link | Redirect to email confirmation page - click confirm and redirected to login page. | Pass | |
 | | Click on Sign Up button | Redirects user to Home page, with user logged in, and displays succes message | Pass | |
 | Log In | | | | |
 | | Click on the Login link | Redirection to Login page | Pass | |

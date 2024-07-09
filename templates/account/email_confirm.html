@@ -9,7 +9,7 @@
 
 
 {% block content %}
-<section class="bg-light section-header">
+<section class="bg-light section-header m-0 p-0">
     <div class="container">
       <div class="section-title">
         <h1 class="text-uppercase"><img class="jj-icon" alt="Jetset Journal Icon" src="{% static 'images/jj_logo.png' %}">Email Confirmation</h1>
@@ -36,7 +36,7 @@
 
             <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
             {% csrf_token %}
-                <button type="submit">{% trans 'Confirm' %}</button>
+                <button class="btn btn-signup btn-lg" type="submit">{% trans 'Confirm' %}</button>
             </form>
             {% else %}
             <p>{% blocktrans %}Unable to confirm {{ email }} because it is already confirmed by a different account.{% endblocktrans %}</p>
