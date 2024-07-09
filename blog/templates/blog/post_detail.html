@@ -95,18 +95,18 @@
     </div>
   </div>
   <!-- Blog Admin - edit/delete a post -->
+  {% if request.user.is_superuser %}
   <div class="row">
     <div class="col-md-8 mb-4 mt-3">
       <h3>Admin Tools:</h3>
-      {% if request.user.is_superuser %}
         <a href="{% url 'edit_blog_post' post.slug %}" class="btn-info btn-lg text-decoration-none mb-4">Edit Post</a>
         <a href="{% url 'delete_blog_post' post.slug %}" class="btn-danger btn-delete-1 btn-lg text-decoration-none">Delete Post</a>
-      {% endif %}
     </div>
   </div>
   <div class="col-12">
     <hr>
   </div>
+  {% endif %}
   <!-- Displaying Comments -->
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 ">
