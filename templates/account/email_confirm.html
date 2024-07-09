@@ -1,35 +1,54 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
 
 {% load i18n %}
 {% load account %}
 
 {% block head_title %}{% trans "Confirm Email Address" %}{% endblock head_title %}
 
-
 {% block content %}
-<h1>{% trans "Confirm Email Address" %}</h1>
+<section class="bg-light section-header">
+    <div class="container">
+      <div class="section-title">
+        <h1 class="text-uppercase"><img class="jj-icon" alt="Jetset Journal Icon" src="{% static 'images/jj_logo.png' %}">Confirm Email Address</h1>
+      </div>
+    </div>
+  </section>
 
-{% if confirmation %}
+  <div id="login-container" class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h2 class="text-center text-uppercase">{% trans "Confirm Email Address" %}</h2>
 
-{% user_display confirmation.email_address.user as user_display %}
+            <p class="mt-4 text-center text-muted mb-0">{% blocktrans %}Thank you for registering your account on the Jetset Journal blog.{% endblocktrans %}</p>
+            <p class="text-center text-muted">{% blocktrans %}Please check your email and click on the confirmation link to finalise account setup.{% endblocktrans %}</p>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-md-8 mt-3 offset-md-2 text-center">
+            {% if confirmation %}
 
-{% if can_confirm %}
-<p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an email address for user {{ user_display }}.{% endblocktrans %}</p>
+            {% user_display confirmation.email_address.user as user_display %}
 
-<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
-{% csrf_token %}
-    <button type="submit">{% trans 'Confirm' %}</button>
-</form>
-{% else %}
-<p>{% blocktrans %}Unable to confirm {{ email }} because it is already confirmed by a different account.{% endblocktrans %}</p>
-{% endif %}
+            {% if can_confirm %}
+            <p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an email address for user {{ user_display }}.{% endblocktrans %}</p>
 
-{% else %}
+            <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+            {% csrf_token %}
+                <button type="submit">{% trans 'Confirm' %}</button>
+            </form>
+            {% else %}
+            <p>{% blocktrans %}Unable to confirm {{ email }} because it is already confirmed by a different account.{% endblocktrans %}</p>
+            {% endif %}
 
-{% url 'account_email' as email_url %}
+            {% else %}
 
-<p>{% blocktrans %}This email confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new email confirmation request</a>.{% endblocktrans %}</p>
+            {% url 'account_email' as email_url %}
 
-{% endif %}
+            <p>{% blocktrans %}This email confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new email confirmation request</a>.{% endblocktrans %}</p>
 
+            {% endif %}
+
+        </div>
+    </div>
+</div>
 {% endblock content %}
