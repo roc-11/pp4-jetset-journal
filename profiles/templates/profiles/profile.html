@@ -30,9 +30,15 @@
             <div class="col-12 col-lg-6 mb-3">
                 <h3 class="mb-4">Profile Image</h3>
                 {% if profile.profile_picture %}
-                <a href="{{ profile.profile_picture.url }}" target="_blank">
-                    <img class="profile-image img-fluid" src="{{ profile.profile_picture.url }}" alt="User's profile picture">
-                </a>
+                    {% if profile.profile_picture == 'placeholder.jpg' %}
+                    <a href="">
+                        <img class="profile-image img-fluid" src="{% static 'images/placeholder.jpg' %}" alt="Blank profile image">
+                    </a>
+                    {% else %}
+                    <a href="{{ profile.profile_picture.url }}" target="_blank">
+                        <img class="profile-image img-fluid" src="{{ profile.profile_picture.url }}" alt="User's profile picture">
+                    </a>
+                    {% endif %}
                 {% endif %}
             </div>
             <!-- Profile Info -->
