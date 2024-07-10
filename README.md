@@ -153,6 +153,12 @@ To follow best practice, a flowchart was created for the website's logic, and ma
 
 Below is the flowchart of the main process of this website:
 
+* Updated project ERD:
+
+![Flow Chart](documentation/Jetset_Journal_Flowchart_new.png)
+
+* First project iteration:
+
 ![Flow Chart](documentation/Jetset_Journal_Flowchart.png)
 
 ### Colour Scheme
