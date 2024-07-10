@@ -153,12 +153,6 @@ To follow best practice, a flowchart was created for the website's logic, and ma
 
 Below is the flowchart of the main process of this website:
 
-* Updated project ERD:
-
-![Flow Chart](documentation/Jetset_Journal_Flowchart_new.png)
-
-* First project iteration:
-
 ![Flow Chart](documentation/Jetset_Journal_Flowchart.png)
 
 ### Colour Scheme
@@ -639,6 +633,12 @@ Entity Relationship Diagrams (ERD) help to visualize database architecture befor
 To follow best practice, a database schema was created for the backend DB and tables, and mapped out before coding began using a free version of [Lucidchart](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning).
 
 Below is the database structure:
+
+* Updated project ERD:
+
+![Database Schema](documentation/Jetset_Journal_Flowchart_new.png)
+
+* Initial project ERD:
 
 ![Database Schema](documentation/Database_Schema.png)
 
