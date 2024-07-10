@@ -168,6 +168,16 @@ h3 {
 
 }
 
+/* For Small screen sizes from 580px wide and down */
+@media screen and (max-width: 580px) {
+
+  #inner-hero #welcome-head {
+    min-width: 80% !important;
+    width: 80% !important;
+  }
+
+}
+
 .post-link {
     text-decoration: none;
     color: #445261;

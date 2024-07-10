@@ -8,13 +8,19 @@
 
 [View GitHub repository](https://github.com/roc-11/pp4-jetset-journal)
 
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/roc-11/pp4-jetset-journal)](https://github.com/roc-11/pp4-jetset-journal/commits/main)
+[![GitHub last commit](https://img.shields.io/github/last-commit/roc-11/pp4-jetset-journal)](https://github.com/roc-11/pp4-jetset-journal/commits/main)
+[![GitHub repo size](https://img.shields.io/github/repo-size/roc-11/pp4-jetset-journal)](https://github.com/roc-11/pp4-jetset-journal)
+
 ## Introduction
 
 Jetset Journal is a website tailored for individuals passionate about travel and seeking new adventures. Serving as a comprehensive travel blog, the platform enables administrators to curate and publish engaging blog posts accessible to users on the front end.
 
 Visitors to the website have the opportunity to explore each blog post, accessing detailed information and captivating images of various destinations. Additionally, users can initiate contact with Jetset Journal through an integrated contact form, facilitating seamless communication.
 
-Registering and logging in to the website grants users the ability to interact further by leaving comments or expressing appreciation for blog posts. Furthermore, registered users have the option to edit or delete their comments as desired.
+Registering and logging in to the website grants users the ability to interact further by leaving comments or expressing appreciation for blog posts. Furthermore, registered users have the option to edit or delete their comments as desired. Registered users can add a blog post to their favourites, returning to the post later, and also view their profile.
+
+Administrators have full CRUD capabilities to manage (add, edit, delete) blog posts on the front-end through the use of a user-friendly and intuitive UI.
 
 To maintain the integrity of the platform, all comments undergo verification and approval by an administrator prior to publication on the website. This ensures that only authenticated and relevant contributions are displayed to the audience.
 
@@ -190,7 +196,7 @@ The following features have been implemented:
 ### Navigation
 
 * Featured at the top of the page, the navigation shows the Jetset Journal logo in the left corner. For smaller devices, the logo centred at the top of the page.
-* The other navigation links are: Home, About, Contact Us and Login/Register/Logout which link to different pages of the site. 
+* The other navigation links are: Home, About, Contact Us, My Profile, Favourites, and Login/Register/Logout which link to different pages of the site. 
 * The active page which the user is currently on is underlined. 
 * When the user hovers over a link, the link is in bold.
 * The navigation makes clear the name of the company and website.
@@ -198,6 +204,7 @@ The following features have been implemented:
 * On smaller devices the navigation converts to a burger menu
 
 * Updated Naviagtion Bar with Profile and Favourites
+
 ![Screenshot of the navigation logged in](documentation/features/navigation_logged_in_new.png)
 
 ![Screenshot of the navigation logged in](documentation/features/navigation_logged_in.png)
@@ -217,6 +224,7 @@ The following features have been implemented:
 * The user can click on the blog post's title/excerpt to take them to that post's post detail page. Here they can view the whole post. 
 
 * Homepage Screenshot Updated:
+
 ![Screenshot of the homepage hero section](documentation/features/hero-section-home-new.png)
 
 ![Screenshot of the homepage hero section](documentation/features/hero-section-home.png)
@@ -427,6 +435,8 @@ Edit a Blog Post Form            |  Edit a Blog Post Form
 :-------------------------:|:-------------------------:
 ![Screenshot of the footer desktop](documentation/features/edit_blog_post_form_1.png)  |  ![Screenshot of the footer mobile](documentation/features/edit_blog_post_form_2.png)
 
+![screenshot - Delete Blog Post](documentation/testing/blog-admin-delete-post-defensive.png)
+
 ```python
 @login_required
 def edit_blog_post(request, slug):
@@ -608,7 +618,6 @@ There are no other unresolved bugs that I am aware of.
 #### Forgot Password
 
 * Emails will be extended and utilised in future implementations of Jetset Journal. 
-* Users will need to verify a link when they sign up for an account. 
 * Users will be able to click "forgot password" from the sign in sections. This will email them instructions on how to reset their password, so that they can regain login capabilities on the website. 
 
 #### Image Preview 

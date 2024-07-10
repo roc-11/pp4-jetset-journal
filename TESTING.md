@@ -38,7 +38,7 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 | File | Screenshot | Notes |
 | --- | --- | --- |
-| manage.py | ![screenshot](documentation/testing/manage_pyp.png) | Pass: No Errors |
+| manage.py | ![screenshot](documentation/testing/manage_py.png) | Pass: No Errors |
 | settings.py | ![screenshot](documentation/testing/settings_py_new.png) | Pass: No Errors |
 | About admin.py | ![screenshot](documentation/testing/about_admin_py.png) |  Pass: No Errors |
 | About models.py | ![screenshot](documentation/testing/about_models_py.png) | Pass: No Errors |
@@ -64,6 +64,14 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 The production site was tested using [Browserstack](https://www.browserstack.com/) to ensure compatibility across various devices, and browsers including Mac, iPhone, Windows and Android, Chrome, Safari and Firefox on different pages chosen at random.
 
+| Browser | Home | About | Contact | Blog Details | Favourites | My Profile | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Chrome | ![screenshot](documentation/browsers/chrome-home-new.png) | ![screenshot](documentation/browsers/chrome-about-new.png) | ![screenshot](documentation/browsers/chrome-contact-new.png) | ![screenshot](documentation/browsers/chrome-blogdetail-new.png) | ![screenshot](documentation/browsers/chrome-favourites-new.png) | ![screenshot](documentation/browsers/chrome-profile-new.png) | Works as expected |
+| Microsoft Edge | ![screenshot](documentation/browsers/microsoft-edge-home-new.png) | ![screenshot](documentation/browsers/microsoft-edge-about-new.png) | ![screenshot](documentation/browsers/microsoft-edge-contact-new.png) | ![screenshot](documentation/browsers/microsoft-edge-blogdetail-new.png) | ![screenshot](documentation/browsers/microsoft-edge-favourites-new.png) | ![screenshot](documentation/browsers/microsoft-edge-profile-new.png) | Works as expected |
+| Safari | ![screenshot](documentation/browsers/safari-home-new.png) | ![screenshot](documentation/browsers/safari-about-new.png) | ![screenshot](documentation/browsers/safari-contact-new.png) | ![screenshot](documentation/browsers/safari-blogdetail-new.png) | ![screenshot](documentation/browsers/safari-favourites-new.png) | ![screenshot](documentation/browsers/safari-profile-new.png) | Works as expected |
+
+The first iteration of the Jetset Journal project:
+
 ![screenshot](documentation/testing/broswer-chrome.png)
 
 ![screenshot](documentation/testing/browser-andriod-chrome.png)
@@ -78,16 +86,28 @@ The production site was tested using [Browserstack](https://www.browserstack.com
 
 I've tested my deployed project on multiple devices to check for responsiveness issues.
 
-| Device | Home | About | Contact | Blog Details | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Mobile (DevTools) | ![screenshot](documentation/responsive-mobile-home.png) | ![screenshot](documentation/responsive-mobile-about.png) | ![screenshot](documentation/responsive-mobile-contact.png) | ![screenshot](documentation/responsive-mobile-blog-detail.png) | Works as expected |
-| Tablet (DevTools) | ![screenshot](documentation/responsive-tablet-home.png) | ![screenshot](documentation/responsive-tablet-about.png) | ![screenshot](documentation/responsive-tablet-contact.png) | ![screenshot](documentation/responsive-tablet-blog-detail.png) | Works as expected |
-| Desktop | ![screenshot](documentation/responsive-desktop-home.png) | ![screenshot](documentation/responsive-desktop-about.png) | ![screenshot](documentation/responsive-desktop-contact.png) | ![screenshot](documentation/responsive-desktop-blog-detail.png) | Works as expected |
-| XL Monitor | ![screenshot](documentation/responsive-xl-home.png) | ![screenshot](documentation/responsive-xl-about.png) | ![screenshot](documentation/responsive-xl-contact.png) | ![screenshot](documentation/responsive-xl-blog-detail.png) | Scaling starts to have minor issues |
+| Device | Home New | Home Old | About | Contact | Blog Details | Favourites | Profile | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Mobile (DevTools) | ![screenshot](documentation/responsive-mobile-home.png) | [screenshot](documentation/responsive-mobile-home.png) | ![screenshot](documentation/responsive-mobile-home.png) | ![screenshot](documentation/responsive-mobile-about.png) | ![screenshot](documentation/responsive-mobile-contact.png) | ![screenshot](documentation/responsive-mobile-blog-detail.png) |  ![screenshot](documentation/responsiveness-favourites-mobile.png) | ![screenshot](documentation/responsive-mobile-blog-detail.png) | Works as expected |
+| Tablet (DevTools) | ![screenshot](documentation/responsive-mobile-home.png) | [screenshot](documentation/responsive-mobile-home.png) | ![screenshot](documentation/responsive-tablet-home.png) | ![screenshot](documentation/responsive-tablet-about.png) | ![screenshot](documentation/responsive-tablet-contact.png) | ![screenshot](documentation/responsive-tablet-blog-detail.png) | ![screenshot](documentation/responsiveness-favourites-tablet.png) | ![screenshot](documentation/responsiveness-profile-tablet.png) | Works as expected |
+| Desktop (DevTools) | ![screenshot](documentation/responsive-mobile-home.png) | [screenshot](documentation/responsive-mobile-home.png) | ![screenshot](documentation/responsive-desktop-home.png) | ![screenshot](documentation/responsive-desktop-about.png) | ![screenshot](documentation/responsive-desktop-contact.png) | ![screenshot](documentation/responsive-desktop-blog-detail.png) | ![screenshot](documentation/responsiveness-favourites-desktop.png) | ![screenshot](documentation/responsiveness-profile-desktop.png) | Works as expected |
+| XL Monitor | ![screenshot](documentation/responsive-mobile-home.png) | [screenshot](documentation/responsive-mobile-home.png) | ![screenshot](documentation/responsive-xl-home.png) | ![screenshot](documentation/responsive-xl-about.png) | ![screenshot](documentation/responsive-xl-contact.png) | ![screenshot](documentation/responsive-xl-blog-detail.png) |![screenshot](documentation/responsiveness-favourites-desktop-xl.png) | ![screenshot](documentation/responsiveness-profile-desktop-xl.png) | Scaling starts to have minor issues |
 
 ## Lighthouse Audit
 
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
+
+| Page | Desktop | Notes |
+| --- | --- | --- |
+| Home | ![screenshot](documentation/testing/lighthouse-desktop-home.png) | No issues - minor SEO issues |
+| Home Mobile | ![screenshot](documentation/testing/lighthouse-mobile-home.png) | Medium/slow response time due to large images |
+| About | ![screenshot](documentation/testing/lighthouse-desktop-about.png) | No issues |
+| Contact | ![screenshot](documentation/testing/lighthouse-desktop-contact.png) | No issues |
+| Blog Details | ![screenshot](documentation/testing/lighthouse-desktop-blogdetail.png) | Some minor warnings |
+| Favourites | ![screenshot](documentation/testing/lighthouse-desktop-favourites.png) | No issues |
+| Profile | ![screenshot](documentation/testing/lighthouse-desktop-profile.png) | No issues |
+
+First iteration of project: 
 
 | Page | Desktop | Notes |
 | --- | --- | --- |
@@ -131,6 +151,12 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | Log Out | | | | |
 | | Click Logout button | Redirects user to logout page | Pass | Confirms logout first |
 | | Click Confirm Logout button | Redirects user to home page | Pass | |
+| Blog Admin - Delete Post | | | | |
+| | Click Delete Post button to delete post | Are you sure you want to delete? Confirm - delete post. | Pass | |
+| Post Detail - Delete Commment | | | | |
+| | Click Delete comment button to delete comment | Are you sure you want to delete? Confirm modal - delete post. | Pass | |
+
+![screenshot](documentation/testing/blog-admin-delete-post-defensive.png)
 
 ## User Story Testing
 
